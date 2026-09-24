@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SANGREGORIO LLC | Digital Books, Guides and Encyclopedias</title>
+  <meta name="description" content="SANGREGORIO LLC is a registered U.S. company (Wyoming) that creates and sells downloadable digital products: illustrated children's encyclopedias in seven languages, home fermentation guides and practical home encyclopedias. Instant delivery, one-time payment, 7-day refund policy." />
+  <style>
+    :root{
+      --navy:#071B3A;
+      --navy2:#0E2F66;
+      --blue:#3478F6;
+      --blue2:#5BA8FF;
+      --ice:#EEF6FF;
+      --white:#FFFFFF;
+      --text:#162033;
+      --muted:#657287;
+      --line:#DCE8F6;
+      --soft:#F7FAFE;
+      --green:#22C55E;
+      --shadow:0 24px 70px rgba(7,27,58,.16);
+      --shadow2:0 12px 30px rgba(7,27,58,.10);
+      --radius:28px;
+      --max:1160px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:"Segoe UI",Arial,Helvetica,sans-serif;color:var(--text);background:linear-gradient(180deg,#F8FBFF 0%,#FFFFFF 42%,#F6FAFF 100%);line-height:1.6}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .wrap{width:min(var(--max),calc(100% - 38px));margin:0 auto}
+
+    /* HEADER */
+    header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(16px);border-bottom:1px solid rgba(220,232,246,.85)}
+    nav{height:74px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:900;color:var(--navy);letter-spacing:.02em;font-size:15px}
+    .brand-mark{width:42px;height:42px;border-radius:14px;display:grid;place-items:center;color:#fff;background:linear-gradient(135deg,var(--navy),var(--blue));box-shadow:0 12px 26px rgba(52,120,246,.28);font-weight:900;font-size:20px}
+    .nav-links{display:flex;align-items:center;gap:22px;font-size:14px;color:var(--muted);font-weight:700}
+    .nav-links a:hover{color:var(--blue)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:13px 22px;font-weight:800;font-size:14px;border:1px solid transparent;transition:.2s ease;cursor:pointer}
+    .btn-primary{background:var(--navy);color:#fff;box-shadow:0 12px 28px rgba(7,27,58,.22)}
+    .btn-primary:hover{background:var(--blue);transform:translateY(-2px)}
+    .btn-secondary{background:#fff;border-color:var(--line);color:var(--navy)}
+
+    /* HERO */
+    .hero{position:relative;overflow:hidden;min-height:calc(100vh - 74px);display:flex;align-items:center;background:var(--navy)}
+    .hero-bg{position:absolute;inset:0;
+      background:
+        radial-gradient(1200px 600px at 82% 18%,rgba(52,120,246,.42),transparent 55%),
+        radial-gradient(900px 520px at 8% 92%,rgba(91,168,255,.24),transparent 55%),
+        linear-gradient(135deg,#071B3A 0%,#0C2A5A 55%,#0E2F66 100%);
+    }
+    .hero-bg::after{content:"";position:absolute;inset:0;opacity:.35;
+      background-image:linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);
+      background-size:44px 44px;mask-image:radial-gradient(circle at 70% 40%,#000,transparent 78%)}
+    .hero-content{position:relative;z-index:2;padding:88px 0;color:#fff;max-width:740px}
+    .eyebrow{display:inline-flex;align-items:center;gap:9px;background:rgba(255,255,255,.92);color:var(--navy);padding:9px 15px;border-radius:999px;font-size:12px;text-transform:uppercase;letter-spacing:.08em;font-weight:900;box-shadow:0 14px 34px rgba(0,0,0,.18)}
+    .dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 5px rgba(34,197,94,.18)}
+    h1{margin:24px 0 20px;font-size:clamp(2.7rem,7vw,5.6rem);line-height:1;letter-spacing:-.05em;max-width:800px}
+    .hero p{font-size:clamp(1rem,2vw,1.2rem);color:rgba(255,255,255,.85);max-width:660px;margin:0 0 28px}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:30px}
+    .trust-row{display:flex;flex-wrap:wrap;gap:12px}
+    .trust-pill{background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.18);padding:10px 14px;border-radius:999px;color:rgba(255,255,255,.88);font-size:13px;font-weight:700;display:inline-flex;gap:8px;align-items:center}
+    .trust-pill svg{width:15px;height:15px}
+
+    /* STATS BAND */
+    .stats{background:var(--navy);border-top:1px solid rgba(255,255,255,.08)}
+    .stats .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;padding:34px 0}
+    .stat{color:#fff;text-align:center}
+    .stat b{display:block;font-size:2rem;letter-spacing:-.03em;line-height:1;margin-bottom:6px}
+    .stat span{color:rgba(255,255,255,.6);font-size:12.5px;font-weight:700;text-transform:uppercase;letter-spacing:.06em}
+
+    section{padding:82px 0}
+    .section-title{max-width:760px;margin:0 auto 40px;text-align:center}
+    .section-title .kicker{color:var(--blue);font-weight:900;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:12px}
+    .section-title h2{margin:0 0 14px;font-size:clamp(2rem,4vw,3.2rem);line-height:1.07;letter-spacing:-.045em;color:var(--navy)}
+    .section-title p{color:var(--muted);font-size:1.02rem;margin:0}
+
+    .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+    .card{background:rgba(255,255,255,.96);border:1px solid var(--line);border-radius:var(--radius);padding:28px;box-shadow:var(--shadow2)}
+    .icon{width:54px;height:54px;border-radius:16px;display:grid;place-items:center;background:var(--ice);margin-bottom:18px}
+    .icon svg{width:26px;height:26px;color:var(--blue)}
+    .card h3{margin:0 0 10px;color:var(--navy);font-size:1.15rem}
+    .card p{margin:0;color:var(--muted);font-size:.94rem}
+    .tag{display:inline-block;margin-top:14px;font-size:11.5px;font-weight:800;color:var(--blue);background:var(--ice);padding:5px 10px;border-radius:999px}
+
+    .split{display:grid;grid-template-columns:1fr 1fr;gap:42px;align-items:center;margin-top:34px}
+    .text-panel{background:#fff;border:1px solid var(--line);border-radius:32px;padding:42px;box-shadow:var(--shadow2)}
+    .text-panel h2{margin:0 0 16px;font-size:clamp(1.8rem,3.4vw,2.6rem);line-height:1.08;color:var(--navy);letter-spacing:-.04em}
+    .text-panel p{color:var(--muted);margin:0 0 16px}
+    .list{display:grid;gap:10px;margin-top:20px}
+    .list-item{border:1px solid var(--line);background:#F8FBFF;border-radius:14px;padding:13px 15px;color:#334155;font-weight:700;font-size:14px;display:flex;gap:10px;align-items:center}
+    .list-item svg{width:16px;height:16px;color:var(--green);flex-shrink:0}
+
+    .visual{border-radius:32px;box-shadow:var(--shadow);border:1px solid var(--line);background:linear-gradient(135deg,#0C2A5A,#3478F6);padding:34px;color:#fff;min-height:440px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
+    .visual::after{content:"";position:absolute;inset:0;opacity:.25;background-image:linear-gradient(rgba(255,255,255,.10) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.10) 1px,transparent 1px);background-size:38px 38px;mask-image:radial-gradient(circle at 80% 10%,#000,transparent 75%)}
+    .v-card{position:relative;z-index:2;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.22);border-radius:18px;padding:20px;backdrop-filter:blur(6px)}
+    .v-card .row{display:flex;justify-content:space-between;gap:14px;padding:9px 0;border-top:1px solid rgba(255,255,255,.14);font-size:13.5px}
+    .v-card .row:first-child{border-top:none}
+    .v-card .row span{color:rgba(255,255,255,.7)}
+    .v-card .row b{font-weight:800;text-align:right}
+    .v-head{position:relative;z-index:2}
+    .v-head .eyebrow{background:rgba(255,255,255,.16);color:#fff;box-shadow:none}
+
+    /* DARK BILLING SECTION */
+    .dark-sec{background:linear-gradient(135deg,var(--navy) 0%,var(--navy2) 100%);color:#fff;border-radius:42px;padding:52px;box-shadow:var(--shadow);overflow:hidden}
+    .dark-sec .split{margin-top:0;align-items:center}
+    .dark-sec h2{margin:0 0 16px;font-size:clamp(1.9rem,3.6vw,2.9rem);line-height:1.06;letter-spacing:-.04em}
+    .dark-sec p{color:rgba(255,255,255,.78);margin:0 0 16px}
+    .dark-sec .list-item{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.16);color:#fff}
+    .billing-cards{display:grid;gap:16px}
+    .bcard{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:20px;padding:24px}
+    .bcard h3{margin:0 0 8px;font-size:1.2rem}
+    .bcard p{margin:0;color:rgba(255,255,255,.72);font-size:.95rem}
+    .bcard .pill{display:inline-block;margin-bottom:12px;font-size:11.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;background:rgba(91,168,255,.22);color:#cfe4ff;padding:5px 11px;border-radius:999px}
+
+    /* STEPS */
+    .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .step{background:#fff;border:1px solid var(--line);border-radius:24px;padding:24px;box-shadow:0 10px 26px rgba(7,27,58,.06)}
+    .num{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:var(--navy);color:#fff;font-weight:900;margin-bottom:14px}
+    .step h3{color:var(--navy);margin:0 0 8px;font-size:1rem}
+    .step p{margin:0;color:var(--muted);font-size:.92rem}
+
+    /* COMPLIANCE */
+    .compliance{background:var(--soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .comp-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+    .comp{background:#fff;border:1px solid var(--line);border-radius:22px;padding:26px}
+    .comp .icon{background:#EAF3FF}
+    .comp h3{margin:0 0 8px;color:var(--navy);font-size:1.05rem}
+    .comp p{margin:0;color:var(--muted);font-size:.92rem}
+
+    /* CONTACT */
+    .contact-section{background:linear-gradient(135deg,#EAF4FF 0%,#FFFFFF 100%);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}
+    .info-box,.form-box{background:#fff;border:1px solid var(--line);border-radius:32px;padding:34px;box-shadow:var(--shadow2)}
+    .info-box h2{margin:0 0 12px;color:var(--navy);font-size:2.2rem;letter-spacing:-.04em;line-height:1.05}
+    .info-box p{color:var(--muted)}
+    .info-row{border-top:1px solid var(--line);padding:15px 0;color:var(--muted);font-size:.95rem}
+    .info-row:first-of-type{border-top:none}
+    .info-row strong{display:block;color:var(--navy);margin-bottom:3px}
+    input,textarea{width:100%;border:1px solid var(--line);border-radius:14px;padding:14px 15px;font:inherit;margin-bottom:12px;background:#FBFDFF;outline:none}
+    input:focus,textarea:focus{border-color:var(--blue)}
+    textarea{min-height:140px;resize:vertical}
+
+    footer{background:var(--navy);color:rgba(255,255,255,.72);padding:40px 0;font-size:13px}
+    .footer-grid{display:flex;justify-content:space-between;gap:22px;flex-wrap:wrap}
+    .legal-links{display:flex;gap:16px;flex-wrap:wrap}
+    .legal-links a{color:#fff;opacity:.82}
+    .legal-links a:hover{opacity:1}
+
+    /* PRODUCT CATALOGUE */
+    .catalogue{margin-top:64px}
+    .catalogue .section-title{margin-bottom:28px}
+    .prods{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .prod{background:#fff;border:1px solid var(--line);border-radius:24px;overflow:hidden;box-shadow:var(--shadow2);display:flex;flex-direction:column}
+    .prod img{width:100%;aspect-ratio:1/1;object-fit:cover;border-bottom:1px solid var(--line);background:var(--ice)}
+    .prod-body{padding:20px 22px 22px;display:flex;flex-direction:column;gap:8px;flex:1}
+    .prod-brand{font-size:11.5px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--blue)}
+    .prod h3{margin:0;color:var(--navy);font-size:1.12rem;line-height:1.2}
+    .prod p{margin:0;color:var(--muted);font-size:.92rem;flex:1}
+    .prod-langs{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+    .prod-langs a{font-size:12px;font-weight:800;color:var(--navy);background:var(--ice);border:1px solid var(--line);padding:5px 10px;border-radius:999px}
+    .prod-langs a:hover{background:var(--blue);border-color:var(--blue);color:#fff}
+    .prod-langs span.lbl{font-size:12px;color:var(--muted);font-weight:700;align-self:center;margin-right:2px}
+    .prod-price{font-size:12.5px;font-weight:800;color:var(--navy)}
+    .prod-price span{color:var(--muted);font-weight:700}
+    .prod.featured{grid-column:1/-1;flex-direction:row;align-items:stretch}
+    .prod.featured img{width:38%;max-width:420px;aspect-ratio:1/1;border-bottom:0;border-right:1px solid var(--line)}
+    .prod.featured .prod-body{padding:34px 36px;justify-content:center;gap:10px}
+    .prod.featured h3{font-size:1.5rem;letter-spacing:-.02em}
+    .prod.featured p{font-size:.97rem;flex:0}
+    .group-title{margin:34px 0 14px;color:var(--navy);font-size:1.05rem;font-weight:900;letter-spacing:.02em;display:flex;align-items:center;gap:12px}
+    .group-title::after{content:"";flex:1;height:1px;background:var(--line)}
+    .stores{margin-top:26px;background:var(--soft);border:1px solid var(--line);border-radius:22px;padding:22px 26px;display:grid;grid-template-columns:1.1fr 2fr;gap:18px;align-items:center}
+    .stores h3{margin:0 0 6px;color:var(--navy);font-size:1.05rem}
+    .stores p{margin:0;color:var(--muted);font-size:.92rem}
+    .store-list{display:flex;flex-wrap:wrap;gap:8px}
+    .store-list a{font-size:13px;font-weight:800;color:var(--navy);background:#fff;border:1px solid var(--line);padding:8px 13px;border-radius:999px}
+    .store-list a:hover{border-color:var(--blue);color:var(--blue)}
+    .roadmap{margin-top:18px;font-size:.9rem;color:var(--muted);text-align:center}
+
+    /* BEFORE-YOU-BUY NOTICE */
+    .notice{margin-top:22px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.18);border-left:4px solid var(--blue2);border-radius:18px;padding:22px 24px}
+    .notice h3{margin:0 0 8px;font-size:1.05rem;color:#fff}
+    .notice p{margin:0 0 10px;color:rgba(255,255,255,.82);font-size:.94rem}
+    .notice p:last-child{margin-bottom:0}
+    .notice a{color:#cfe4ff;text-decoration:underline;text-underline-offset:2px;font-weight:700}
+    .policy-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+    .policy-links a{font-size:12.5px;font-weight:800;color:var(--blue);background:var(--ice);padding:6px 11px;border-radius:999px}
+    .policy-links a:hover{background:var(--blue);color:#fff}
+    .footer-addr{margin-top:6px;color:rgba(255,255,255,.55)}
+
+    @media(max-width:900px){
+      .nav-links{display:none}
+      .hero{min-height:auto}
+      .hero-content{padding:80px 0}
+      .cards,.comp-cards{grid-template-columns:1fr 1fr}
+      .prods{grid-template-columns:1fr 1fr}
+      .stores{grid-template-columns:1fr}
+      .split,.contact-grid,.stats .wrap{grid-template-columns:1fr}
+      .steps{grid-template-columns:1fr 1fr}
+      .dark-sec{padding:32px;border-radius:32px}
+    }
+    @media(max-width:560px){
+      nav{height:66px}
+      h1{font-size:2.7rem}
+      section{padding:56px 0}
+      .cards,.steps,.comp-cards,.prods{grid-template-columns:1fr}
+      .prod.featured{flex-direction:column}
+      .prod.featured img{width:100%;max-width:none;border-right:0;border-bottom:1px solid var(--line)}
+      .prod.featured .prod-body{padding:22px}
+      .text-panel,.info-box,.form-box,.card{padding:24px;border-radius:22px}
+      .footer-grid{display:block}
+      .legal-links{margin-top:16px}
+      .stat b{font-size:1.7rem}
+      .stats .wrap{grid-template-columns:1fr 1fr}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <nav>
+        <a href="#home" class="brand"><span class="brand-mark">S</span><span>SANGREGORIO LLC</span></a>
+        <div class="nav-links">
+          <a href="#catalogue">Products</a>
+          <a href="#billing">Billing</a>
+          <a href="#process">How It Works</a>
+          <a href="#trust">Compliance</a>
+          <a href="refund.html">Policies</a>
+          <a href="#contact" class="btn btn-primary">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="hero-bg"></div>
+      <div class="wrap">
+        <div class="hero-content">
+          <span class="eyebrow"><span class="dot"></span> Registered U.S. Digital Commerce Company</span>
+          <h1>Digital books and guides, delivered worldwide.</h1>
+          <p>SANGREGORIO LLC creates and sells downloadable digital products: illustrated encyclopedias for children in seven languages, home fermentation and probiotics guides, and practical encyclopedias for the home. Everything is delivered instantly by email after a single secure card payment. No physical goods, no shipping, no subscriptions.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#catalogue">Explore Our Products</a>
+            <a class="btn btn-secondary" href="#contact">Contact Us</a>
+          </div>
+          <div class="trust-row">
+            <span class="trust-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 6v6c0 5 3.5 8 8 10 4.5-2 8-5 8-10V6l-8-4z"/></svg> Secure card payments</span>
+            <span class="trust-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v12H4z"/><path d="M8 20h8"/></svg> 100% digital delivery</span>
+            <span class="trust-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7h18M3 12h18M3 17h18"/></svg> One-time payment only</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS -->
+    <div class="stats">
+      <div class="wrap">
+        <div class="stat"><b>1,600+</b><span>Digital orders delivered</span></div>
+        <div class="stat"><b>58</b><span>Countries served</span></div>
+        <div class="stat"><b>7</b><span>Languages</span></div>
+        <div class="stat"><b>24h</b><span>Support response</span></div>
+      </div>
+    </div>
+
+    <!-- PRODUCTS -->
+    <section id="products">
+      <div class="wrap">
+        <div class="section-title">
+          <div class="kicker">What we sell</div>
+          <h2>Our digital products</h2>
+          <p>Ebooks, illustrated encyclopedias and step-by-step guides in PDF, designed to be read on any screen or printed at home. All of them are one-time purchases. These are our product lines; the current catalogue with links to every product page is just below.</p>
+        </div>
+        <div class="cards">
+          <article class="card">
+            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
+            <h3>Children's encyclopedias</h3>
+            <p>Illustrated science, history and emotions encyclopedias for ages 6 to 12, sold in Spanish, English, Italian, French, German, Portuguese and Polish.</p>
+            <span class="tag">One-time</span>
+          </article>
+          <article class="card">
+            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 2h8"/><path d="M9 2v6l-5 9a3 3 0 0 0 2.6 4.5h10.8A3 3 0 0 0 20 17l-5-9V2"/></svg></div>
+            <h3>Fermentation &amp; probiotics guides</h3>
+            <p>Kombucha, kefir, sourdough, sauerkraut and home probiotics, explained step by step with exact quantities and times.</p>
+            <span class="tag">One-time</span>
+          </article>
+          <article class="card">
+            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg></div>
+            <h3>Practical home encyclopedias</h3>
+            <p>Multi-volume guides for home repairs, food self-sufficiency and plant propagation, written for beginners.</p>
+            <span class="tag">One-time</span>
+          </article>
+          <article class="card">
+            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 12v9H4v-9"/><path d="M2 7h20v5H2z"/><path d="M12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg></div>
+            <h3>Bonus libraries &amp; add-ons</h3>
+            <p>Printable bonuses included with every purchase, and optional add-on ebooks offered at checkout, each with its own price shown before confirming.</p>
+            <span class="tag">One-time</span>
+          </article>
+        </div>
+
+        <div class="split">
+          <div class="text-panel">
+            <h2>PDF books and guides, delivered by email.</h2>
+            <p>Customers purchase digital products through our own online stores. Immediately after the payment is confirmed, they receive an email with a secure link to download or access their purchase, automatically.</p>
+            <p>We do not sell physical products, hold inventory or ship anything. Customers can read the files on a phone, tablet or computer, or print them at home for personal, non-transferable use.</p>
+            <div class="list">
+              <div class="list-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg> Illustrated encyclopedias for children</div>
+              <div class="list-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg> Home fermentation and probiotics guides</div>
+              <div class="list-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg> Practical home, garden and repair encyclopedias</div>
+              <div class="list-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6 9 17l-5-5"/></svg> Printable bonuses and optional add-on ebooks</div>
+            </div>
+          </div>
+          <div class="visual">
+            <div class="v-head">
+              <span class="eyebrow">Company details</span>
+            </div>
+            <div class="v-card">
+              <div class="row"><span>Legal name</span><b>SANGREGORIO LLC</b></div>
+              <div class="row"><span>Entity type</span><b>Limited Liability Company</b></div>
+              <div class="row"><span>Jurisdiction</span><b>Wyoming, USA</b></div>
+              <div class="row"><span>EIN</span><b>[EIN pending]</b></div>
+              <div class="row"><span>Owner</span><b>Juan Pablo San Gregorio</b></div>
+              <div class="row"><span>Status</span><b>Active</b></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CURRENT CATALOGUE -->
+        <div class="catalogue" id="catalogue">
+          <div class="section-title">
+            <div class="kicker">Current catalogue</div>
+            <h2>Products we sell today</h2>
+            <p>Every product below is sold by SANGREGORIO LLC through our own online stores. Click a language or a store to open the product page; the price you pay is always the one shown at checkout.</p>
+          </div>
+
+          <div class="group-title">Children's encyclopedias</div>
+          <div class="prods">
+            <article class="prod featured">
+              <img src="images/mentescuriosas.jpg" alt="Mentes Curiosas — illustrated encyclopedia for children" loading="lazy" />
+              <div class="prod-body">
+                <span class="prod-brand">Mentes Curiosas · Curious Minds</span>
+                <h3>The illustrated encyclopedia for curious kids, in seven languages</h3>
+                <p>An 11-book science, history and emotions encyclopedia for children aged 6 to 12, written as short "in a minute" comic-style stories with a friendly boy scientist and his robot sidekick. Each edition includes 8 printable bonuses: lifetime updates, a joke book, 20 bedtime stories, 27 card tricks, the little scientist's handbook, 100 home experiments, home engineering projects and a printable certificate.</p>
+                <p>Sold as a <strong>one-time purchase of US$ 27.99</strong> (list price US$ 79.99), delivered instantly as PDF by email. Optional add-on ebooks are offered at checkout with their own price. Each language has its own store, product page and checkout.</p>
+                <div class="prod-langs"><span class="lbl">Product page:</span>
+                  <a href="https://www.mentescuriosas.store" target="_blank" rel="noopener">Español</a>
+                  <a href="https://www.shopcuriousminds.com" target="_blank" rel="noopener">English</a>
+                  <a href="https://www.piccolicuriosi.com" target="_blank" rel="noopener">Italiano</a>
+                  <a href="https://www.mespetitscurieux.com" target="_blank" rel="noopener">Français</a>
+                  <a href="https://www.meinekleinenentdecker.com" target="_blank" rel="noopener">Deutsch</a>
+                  <a href="https://www.asmentescuriosas.com" target="_blank" rel="noopener">Português</a>
+                  <a href="https://www.ciekawskieglowki.com" target="_blank" rel="noopener">Polski</a>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="group-title">Fermentation &amp; probiotics guides</div>
+          <div class="prods">
+            <article class="prod">
+              <img src="images/granlibrokombucha.jpg" alt="El Gran Libro de la Kombucha" loading="lazy" />
+              <div class="prod-body">
+                <span class="prod-brand">El Gran Libro de la Kombucha</span>
+                <h3>Grow your own SCOBY and brew kombucha for life</h3>
+                <p>The complete kombucha guide in Spanish: forming a SCOBY from scratch, first and second fermentation, flavouring and bottling safely, with bonus guides on kefir, sourdough and sauerkraut.</p>
+                <div class="prod-price">One-time purchase · <span>Spanish · PDF</span></div>
+                <div class="prod-langs"><span class="lbl">Product page:</span><a href="https://www.granlibrokombucha.com" target="_blank" rel="noopener">granlibrokombucha.com</a></div>
+              </div>
+            </article>
+            <article class="prod">
+              <img src="images/mundoprobiotico.jpg" alt="Guía Completa de Producción de Probióticos" loading="lazy" />
+              <div class="prod-body">
+                <span class="prod-brand">Mundo Probiótico</span>
+                <h3>Complete guide to making probiotics at home</h3>
+                <p>A kit of 5 ebooks plus 5 extra guides: kombucha, milk and water kefir, natural fermented sodas and sourdough, with 60 flavouring recipes and illustrated step-by-step instructions.</p>
+                <div class="prod-price">One-time purchase of US$ 19.90 · <span>Spanish · PDF</span></div>
+                <div class="prod-langs"><span class="lbl">Product page:</span><a href="https://www.tumundoprobiotico.com" target="_blank" rel="noopener">tumundoprobiotico.com</a></div>
+              </div>
+            </article>
+          </div>
+
+          <div class="group-title">Practical home encyclopedias</div>
+          <div class="prods">
+            <article class="prod">
+              <img src="images/elreydelcampo.jpg" alt="Enciclopedia El Rey del Campo" loading="lazy" />
+              <div class="prod-body">
+                <span class="prod-brand">El Rey del Campo</span>
+                <h3>The 14-volume encyclopedia of the self-sufficient home</h3>
+                <p>Vegetable garden, chickens, preserves, ferments and bread, organised by season, plus 8 printable bonuses such as seasonal cards, a 90-day plan and cutting-list blueprints.</p>
+                <div class="prod-price">One-time purchase of US$ 27.99 · <span>Spanish · PDF</span></div>
+                <div class="prod-langs"><span class="lbl">Product page:</span><a href="https://elreydelcampo.impultienda.ar" target="_blank" rel="noopener">elreydelcampo.impultienda.ar</a></div>
+              </div>
+            </article>
+            <article class="prod">
+              <img src="images/arreglosencasa.jpg" alt="Enciclopedia Completa de los Arreglos en Casa" loading="lazy" />
+              <div class="prod-body">
+                <span class="prod-brand">Arreglos en Casa</span>
+                <h3>The complete 14-volume encyclopedia of home repairs</h3>
+                <p>Plumbing, electrical safety, damp, walls, paint, doors, furniture and appliances for beginners, with a "when to call a professional and what it should cost" volume and 8 bonuses.</p>
+                <div class="prod-price">One-time purchase of US$ 24.99 · <span>Spanish · PDF</span></div>
+                <div class="prod-langs"><span class="lbl">Product page:</span><a href="https://arreglosencasa.impultienda.ar" target="_blank" rel="noopener">arreglosencasa.impultienda.ar</a></div>
+              </div>
+            </article>
+            <article class="prod">
+              <img src="images/bibliadelesqueje.jpg" alt="La Biblia del Esqueje" loading="lazy" />
+              <div class="prod-body">
+                <span class="prod-brand">La Biblia del Esqueje</span>
+                <h3>Propagate 100 plants from cuttings and sell the first batch</h3>
+                <p>A practical guide to plant propagation at home: which plants, which cuttings, rooting, potting and the first steps to sell what you grow.</p>
+                <div class="prod-price">One-time purchase · <span>Spanish · PDF</span></div>
+                <div class="prod-langs"><span class="lbl">Product page:</span><a href="https://bibliadelesqueje.impultienda.ar" target="_blank" rel="noopener">bibliadelesqueje.impultienda.ar</a></div>
+              </div>
+            </article>
+          </div>
+
+          <div class="stores">
+            <div>
+              <h3>Our online stores</h3>
+              <p>All owned and operated by SANGREGORIO LLC. Purchases are billed and supported by us, and every charge appears on the card statement as <strong>SANGREGORIO LLC</strong>.</p>
+            </div>
+            <div class="store-list">
+              <a href="https://www.mentescuriosas.store" target="_blank" rel="noopener">mentescuriosas.store</a>
+              <a href="https://www.shopcuriousminds.com" target="_blank" rel="noopener">shopcuriousminds.com</a>
+              <a href="https://www.piccolicuriosi.com" target="_blank" rel="noopener">piccolicuriosi.com</a>
+              <a href="https://www.mespetitscurieux.com" target="_blank" rel="noopener">mespetitscurieux.com</a>
+              <a href="https://www.meinekleinenentdecker.com" target="_blank" rel="noopener">meinekleinenentdecker.com</a>
+              <a href="https://www.asmentescuriosas.com" target="_blank" rel="noopener">asmentescuriosas.com</a>
+              <a href="https://www.ciekawskieglowki.com" target="_blank" rel="noopener">ciekawskieglowki.com</a>
+              <a href="https://www.granlibrokombucha.com" target="_blank" rel="noopener">granlibrokombucha.com</a>
+              <a href="https://www.tumundoprobiotico.com" target="_blank" rel="noopener">tumundoprobiotico.com</a>
+              <a href="https://elreydelcampo.impultienda.ar" target="_blank" rel="noopener">elreydelcampo.impultienda.ar</a>
+              <a href="https://arreglosencasa.impultienda.ar" target="_blank" rel="noopener">arreglosencasa.impultienda.ar</a>
+              <a href="https://bibliadelesqueje.impultienda.ar" target="_blank" rel="noopener">bibliadelesqueje.impultienda.ar</a>
+            </div>
+          </div>
+          <p class="roadmap">We add new titles and languages regularly within the product lines above. This page is updated as they launch. Prices are listed in USD; depending on the customer's country, the checkout may present the equivalent amount in local currency at the current exchange rate.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- BILLING -->
+    <section id="billing">
+      <div class="wrap">
+        <div class="dark-sec">
+          <div class="split">
+            <div>
+              <h2>One-time billing. No subscriptions.</h2>
+              <p>SANGREGORIO LLC operates a transparent digital-commerce model. Customers pay once by credit or debit card at a secure checkout, and every charge appears clearly on their statement as <strong>SANGREGORIO LLC</strong>. There are no recurring charges of any kind.</p>
+              <div class="list">
+                <div class="list-item">Payments processed by Stripe</div>
+                <div class="list-item">PCI-compliant, encrypted checkout (HTTPS/TLS)</div>
+                <div class="list-item">Clear billing descriptor and email receipts</div>
+                <div class="list-item">7-day money-back guarantee on every purchase</div>
+              </div>
+            </div>
+            <div class="billing-cards">
+              <div class="bcard">
+                <span class="pill">One-time payment</span>
+                <h3>Single digital purchases</h3>
+                <p>Customers buy a product once and receive immediate, permanent access to the PDF files by email. No renewals, no memberships.</p>
+              </div>
+              <div class="bcard">
+                <span class="pill">Optional add-ons</span>
+                <h3>Extra ebooks at checkout</h3>
+                <p>Some checkouts offer optional add-on ebooks before and after payment. Each one shows its own price and is charged only if the customer accepts it.</p>
+              </div>
+            </div>
+          </div>
+          <div class="notice" id="before-you-buy">
+            <h3>Before you buy: what every customer sees at checkout</h3>
+            <p>All our products are <strong>digital content with immediate delivery</strong>. Immediately after the payment is confirmed the customer receives an email with a secure download link; nothing is shipped physically. Discounts, crossed-out prices and limited-time offers are promotions: <strong>the price paid is always the one displayed at checkout when the order is confirmed</strong>, in the currency shown.</p>
+            <p>We offer a <strong>7-day money-back guarantee</strong> counted from the purchase date: the customer writes to us from the email used at checkout, quoting the order number, and the refund goes back to the original payment method within 5 to 10 business days. We also refund duplicate charges and billing errors without further conditions. Full details: <a href="refund.html">Refund Policy</a> · <a href="terms.html">Terms &amp; Conditions</a> · <a href="privacy.html">Privacy Policy</a>.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section id="process">
+      <div class="wrap">
+        <div class="section-title">
+          <div class="kicker">Process</div>
+          <h2>How it works</h2>
+          <p>A simple, transparent digital process from discovery to delivery.</p>
+        </div>
+        <div class="steps">
+          <div class="step"><div class="num">1</div><h3>Discover</h3><p>Customers find our books and guides through social media, online ads and our own online stores.</p></div>
+          <div class="step"><div class="num">2</div><h3>Secure checkout</h3><p>They pay once by card through a secure, encrypted checkout processed by Stripe.</p></div>
+          <div class="step"><div class="num">3</div><h3>Instant delivery</h3><p>An email with a secure download link is sent automatically as soon as the payment is confirmed.</p></div>
+          <div class="step"><div class="num">4</div><h3>Support</h3><p>A person answers by email, phone or WhatsApp, Monday to Friday, within 24 hours.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRUST & COMPLIANCE -->
+    <section class="compliance" id="trust">
+      <div class="wrap">
+        <div class="section-title">
+          <div class="kicker">Trust &amp; compliance</div>
+          <h2>Built to be trusted</h2>
+          <p>Everything a payment provider or bank needs to see: secure processing, clear policies and real support.</p>
+        </div>
+        <div class="comp-cards">
+          <div class="comp">
+            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></div>
+            <h3>Secure payments</h3>
+            <p>All transactions are processed by Stripe on PCI DSS certified infrastructure over encrypted connections. We never see or store card data.</p>
+          </div>
+          <div class="comp">
+            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 6v6c0 5 3.5 8 8 10 4.5-2 8-5 8-10V6l-8-4z"/></svg></div>
+            <h3>Data protection</h3>
+            <p>We collect only what is needed to fulfil an order and provide support, and never sell personal data.</p>
+          </div>
+          <div class="comp">
+            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg></div>
+            <h3>Transparent policies</h3>
+            <p>Clear terms, privacy and refund policies are published on this site and linked from every checkout.</p>
+            <div class="policy-links"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="refund.html">Refunds</a></div>
+          </div>
+          <div class="comp">
+            <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+            <h3>Real support</h3>
+            <p>A dedicated email, a U.S. phone number and WhatsApp handle questions, delivery issues and refunds, quickly and directly.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact-section" id="contact">
+      <div class="wrap contact-grid">
+        <div class="info-box">
+          <h2>Contact SANGREGORIO LLC</h2>
+          <p>For support, product questions, business inquiries or billing help, contact our team directly.</p>
+          <div class="info-row"><strong>Email</strong><a href="mailto:mentescuriosaspro@gmail.com">mentescuriosaspro@gmail.com</a></div>
+          <div class="info-row"><strong>Phone</strong><a href="tel:+13077777311">+1 (307) 777-7311</a></div>
+          <div class="info-row"><strong>WhatsApp</strong><a href="https://wa.me/542995738582" target="_blank" rel="noopener">+54 299 573 8582</a></div>
+          <div class="info-row"><strong>Legal entity</strong>SANGREGORIO LLC · Wyoming, United States · EIN [EIN pending]</div>
+          <div class="info-row"><strong>Business address</strong>30 N Gould St, Sheridan, WY 82801-6317, United States</div>
+          <div class="info-row"><strong>Delivery</strong>Digital products are delivered by email. No physical shipping is provided.</div>
+          <div class="info-row"><strong>Hours &amp; response time</strong>Monday to Friday, 9:00 to 18:00 (Argentina time). We reply within 24 hours.</div>
+          <div class="info-row"><strong>Customer support</strong><a href="support.html" style="color:var(--blue);text-decoration:underline">Customer Support page</a> · order issues, download links and refunds</div>
+        </div>
+        <form class="form-box" onsubmit="return false;">
+          <input type="text" placeholder="Your name" />
+          <input type="email" placeholder="Your email" />
+          <input type="text" placeholder="Subject" />
+          <textarea placeholder="Tell us what you need"></textarea>
+          <button class="btn btn-primary" type="button">Send Message</button>
+          <p style="font-size:12px;color:var(--muted);margin:12px 0 0;">This form is for website presentation. Please contact us directly by email or WhatsApp for the fastest response.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-grid">
+      <div>
+        <strong style="color:#fff;">SANGREGORIO LLC</strong><br />
+        Digital books and guides · One-time payment only<br />
+        Email: <a href="mailto:mentescuriosaspro@gmail.com">mentescuriosaspro@gmail.com</a> · Phone: <a href="tel:+13077777311">+1 (307) 777-7311</a>
+        <div class="footer-addr">30 N Gould St, Sheridan, WY 82801-6317, United States · EIN [EIN pending]</div>
+      </div>
+      <div class="legal-links">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms &amp; Conditions</a>
+        <a href="refund.html">Refund Policy</a>
+        <a href="support.html">Customer Support</a>
+      </div>
+      <div>© 2026 SANGREGORIO LLC · Wyoming, USA<br />All rights reserved.</div>
+    </div>
+  </footer>
+</body>
+</html>

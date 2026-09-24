@@ -1,0 +1,7 @@
+# Rutas del sitio anterior (juanpablosangregorio.pro) que siguen enlazadas desde los checkouts
+RewriteEngine On
+RewriteRule ^terms/?$ /terms.html [R=301,L]
+RewriteRule ^privacy/?$ /privacy.html [R=301,L]
+RewriteRule ^refund-policy/?$ /refund.html [R=301,L]
+RewriteRule ^contact/?$ /support.html [R=301,L]
+ErrorDocument 404 /index.html
