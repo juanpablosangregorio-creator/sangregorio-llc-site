@@ -183,7 +183,7 @@
       $("list").innerHTML = '<div class="empty">Loading…</div>';
       try {
         const r = await api(actual.id + "/conversations", "get", {
-          platform: "instagram", fields: "id,updated_time,participants", limit: 20
+          platform: "instagram", fields: "participants", limit: 20
         }, actual.access_token);
         const igId = actual.instagram_business_account.id;
         $("list").innerHTML = "";
@@ -194,7 +194,7 @@
           d.className = "conv";
           d.innerHTML = "<b></b><span></span>";
           d.querySelector("b").textContent = "@" + (otro.username || otro.name || otro.id);
-          d.querySelector("span").textContent = new Date(c.updated_time).toLocaleString();
+          d.querySelector("span").textContent = "Instagram Direct";
           d.onclick = () => { document.querySelectorAll(".conv").forEach(x => x.classList.remove("sel")); d.classList.add("sel"); abrir(c.id, otro); };
           $("list").appendChild(d);
         });
