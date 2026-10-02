@@ -104,7 +104,7 @@
   <script>
     const APP_ID = "2218983445500820";
     const V = "v26.0";
-    const SCOPE = "pages_show_list,instagram_basic,instagram_manage_messages,pages_manage_metadata,business_management";
+    const CONFIG_ID = "1115058987590720"; // Facebook Login for Business: pages_show_list, instagram_basic, instagram_manage_messages, pages_manage_metadata, business_management
     const $ = id => document.getElementById(id);
     let cuentas = [], actual = null, convActual = null;
 
@@ -127,7 +127,7 @@
 
     $("btnLogin").onclick = () => FB.login(r => {
       if (r.status === "connected") alEntrar(); else estado("stLogin", "Login cancelled.", "err");
-    }, { scope: SCOPE, return_scopes: true });
+    }, { config_id: CONFIG_ID });
 
     $("btnLogout").onclick = () => FB.logout(() => location.reload());
 
