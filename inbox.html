@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>Customer Inbox | SANGREGORIO LLC</title>
+  <style>
+    :root{--navy:#071B3A;--blue:#3478F6;--ice:#EEF6FF;--text:#162033;--muted:#657287;--line:#DCE8F6;--soft:#F7FAFE;--green:#16A34A;--red:#DC2626}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:"Segoe UI",Arial,Helvetica,sans-serif;color:var(--text);background:#F6FAFF;line-height:1.5}
+    header{background:var(--navy);color:#fff}
+    .wrap{width:min(1100px,calc(100% - 32px));margin:0 auto}
+    nav{height:64px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{font-weight:900;letter-spacing:.02em}
+    #who{font-size:13px;opacity:.85}
+    main{padding:28px 0 60px}
+    h1{margin:0 0 6px;font-size:1.6rem;color:var(--navy)}
+    .lead{margin:0 0 24px;color:var(--muted);max-width:760px}
+    .card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px 22px;margin:0 0 18px}
+    .card h2{margin:0 0 4px;font-size:1.05rem;color:var(--navy)}
+    .card p{margin:0 0 12px;color:var(--muted);font-size:.93rem}
+    .perm{display:inline-block;font:600 12px ui-monospace,Menlo,monospace;background:var(--ice);color:var(--blue);border:1px solid #CFE0F7;border-radius:6px;padding:2px 7px;margin:0 4px 8px 0}
+    button{font:700 14px inherit;border:0;border-radius:999px;padding:10px 18px;background:var(--navy);color:#fff;cursor:pointer}
+    button:hover{background:var(--blue)}
+    button:disabled{opacity:.45;cursor:default}
+    button.fb{background:#1877F2}
+    select,textarea{font:inherit;border:1px solid var(--line);border-radius:10px;padding:9px 11px;width:100%;background:#fff;color:var(--text)}
+    .row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+    .status{font-size:13px;margin-top:10px;min-height:18px}
+    .ok{color:var(--green)} .err{color:var(--red)}
+    .inbox{display:grid;grid-template-columns:280px 1fr;gap:14px;min-height:380px}
+    .list{border:1px solid var(--line);border-radius:12px;overflow:auto;max-height:520px}
+    .conv{padding:11px 13px;border-bottom:1px solid var(--line);cursor:pointer}
+    .conv:hover,.conv.sel{background:var(--ice)}
+    .conv b{display:block;font-size:14px}
+    .conv span{font-size:12.5px;color:var(--muted)}
+    .thread{border:1px solid var(--line);border-radius:12px;display:flex;flex-direction:column;max-height:520px}
+    .msgs{flex:1;overflow:auto;padding:14px;display:flex;flex-direction:column;gap:8px;background:var(--soft);border-radius:12px 12px 0 0}
+    .msg{max-width:75%;padding:8px 12px;border-radius:14px;font-size:14px;white-space:pre-wrap;word-wrap:break-word}
+    .in{align-self:flex-start;background:#fff;border:1px solid var(--line)}
+    .out{align-self:flex-end;background:var(--blue);color:#fff}
+    .msg small{display:block;font-size:11px;opacity:.7;margin-top:3px}
+    .reply{padding:12px;border-top:1px solid var(--line);display:flex;gap:10px}
+    .reply textarea{height:44px;resize:vertical}
+    .empty{color:var(--muted);font-size:14px;padding:16px}
+    footer{color:var(--muted);font-size:12.5px;padding:0 0 30px}
+    footer a{color:var(--blue)}
+    @media(max-width:760px){.inbox{grid-template-columns:1fr}.list{max-height:220px}}
+  </style>
+</head>
+<body>
+  <header><div class="wrap"><nav><span class="brand">SANGREGORIO LLC · Customer Inbox</span><span id="who"></span></nav></div></header>
+  <main class="wrap">
+    <h1>Instagram customer support inbox</h1>
+    <p class="lead">Our support team uses this tool to read and answer the direct messages customers send to our own Instagram professional account, <b>@mentescuriosas.kids</b> (Mentes Curiosas, digital educational books for children). We only access the account we own and only reply to conversations the customer started.</p>
+
+    <section class="card">
+      <h2>1. Log in with Facebook</h2>
+      <p>Grants the app access to the Facebook Page and Instagram account we manage.</p>
+      <div>
+        <span class="perm">pages_show_list</span><span class="perm">instagram_basic</span><span class="perm">instagram_manage_messages</span><span class="perm">pages_manage_metadata</span><span class="perm">business_management</span>
+      </div>
+      <div class="row">
+        <button class="fb" id="btnLogin" disabled>Continue with Facebook</button>
+        <button id="btnLogout" style="display:none">Log out</button>
+      </div>
+      <div class="status" id="stLogin">Loading Facebook SDK…</div>
+    </section>
+
+    <section class="card">
+      <h2>2. Choose the Instagram account</h2>
+      <p>Lists the Pages you manage and the Instagram professional account connected to each one.</p>
+      <div><span class="perm">pages_show_list</span><span class="perm">instagram_basic</span><span class="perm">business_management</span></div>
+      <select id="selAccount" disabled><option>Log in first</option></select>
+      <div class="status" id="stAccount"></div>
+    </section>
+
+    <section class="card">
+      <h2>3. Receive new messages</h2>
+      <p>Subscribes the Page to the <code>messages</code> webhook so new Instagram messages reach our support system in real time.</p>
+      <div><span class="perm">pages_manage_metadata</span></div>
+      <div class="row"><button id="btnSub" disabled>Subscribe Page to message webhooks</button></div>
+      <div class="status" id="stSub"></div>
+    </section>
+
+    <section class="card">
+      <h2>4. Read and reply to customer messages</h2>
+      <p>Reads the Instagram conversations of the selected account and sends replies. Replies are only sent inside the 24-hour window that opens when the customer writes to us.</p>
+      <div><span class="perm">instagram_manage_messages</span><span class="perm">instagram_basic</span></div>
+      <div class="row" style="margin-bottom:12px"><button id="btnLoad" disabled>Refresh conversations</button></div>
+      <div class="inbox">
+        <div class="list" id="list"><div class="empty">No account selected.</div></div>
+        <div class="thread">
+          <div class="msgs" id="msgs"><div class="empty">Select a conversation.</div></div>
+          <div class="reply"><textarea id="txt" placeholder="Write a reply…" disabled></textarea><button id="btnSend" disabled>Send</button></div>
+        </div>
+      </div>
+      <div class="status" id="stInbox"></div>
+    </section>
+  </main>
+  <footer class="wrap">Operated by SANGREGORIO LLC, 30 N Gould St, Sheridan, WY 82801, USA · <a href="privacy.html">Privacy Policy</a> · <a href="data-deletion.html">Data deletion</a> · <a href="terms.html">Terms</a></footer>
+
+  <script>
+    const APP_ID = "2218983445500820";
+    const V = "v26.0";
+    const SCOPE = "pages_show_list,instagram_basic,instagram_manage_messages,pages_manage_metadata,business_management";
+    const $ = id => document.getElementById(id);
+    let cuentas = [], actual = null, convActual = null;
+
+    function estado(el, txt, tipo) { $(el).textContent = txt; $(el).className = "status " + (tipo || ""); }
+
+    function api(ruta, metodo, params, token) {
+      return new Promise((ok, mal) => {
+        FB.api("/" + ruta, metodo || "get", Object.assign({}, params || {}, token ? { access_token: token } : {}), r => {
+          if (!r || r.error) mal(new Error(r && r.error ? r.error.message : "Unknown error")); else ok(r);
+        });
+      });
+    }
+
+    window.fbAsyncInit = function () {
+      FB.init({ appId: APP_ID, cookie: true, xfbml: false, version: V });
+      $("btnLogin").disabled = false;
+      estado("stLogin", "Not logged in.");
+      FB.getLoginStatus(r => { if (r.status === "connected") alEntrar(); });
+    };
+
+    $("btnLogin").onclick = () => FB.login(r => {
+      if (r.status === "connected") alEntrar(); else estado("stLogin", "Login cancelled.", "err");
+    }, { scope: SCOPE, return_scopes: true });
+
+    $("btnLogout").onclick = () => FB.logout(() => location.reload());
+
+    async function alEntrar() {
+      try {
+        const yo = await api("me", "get", { fields: "name" });
+        $("who").textContent = "Logged in as " + yo.name;
+        $("btnLogin").style.display = "none"; $("btnLogout").style.display = "";
+        const perms = await api("me/permissions");
+        const dados = perms.data.filter(p => p.status === "granted").map(p => p.permission);
+        estado("stLogin", "Connected. Granted: " + dados.join(", "), "ok");
+        await cargarCuentas();
+      } catch (e) { estado("stLogin", e.message, "err"); }
+    }
+
+    async function cargarCuentas() {
+      const r = await api("me/accounts", "get", { fields: "id,name,access_token,instagram_business_account{id,username,profile_picture_url}", limit: 100 });
+      cuentas = r.data.filter(p => p.instagram_business_account);
+      const sel = $("selAccount");
+      sel.innerHTML = "";
+      if (!cuentas.length) { sel.innerHTML = "<option>No Instagram professional accounts found</option>"; estado("stAccount", "No Page with a connected Instagram account.", "err"); return; }
+      cuentas.forEach((p, i) => {
+        const o = document.createElement("option");
+        o.value = i; o.textContent = "@" + p.instagram_business_account.username + "  ·  Page: " + p.name;
+        sel.appendChild(o);
+      });
+      const mc = cuentas.findIndex(p => p.instagram_business_account.username === "mentescuriosas.kids");
+      sel.value = mc >= 0 ? mc : 0;
+      sel.disabled = false;
+      elegir();
+    }
+
+    $("selAccount").onchange = elegir;
+    function elegir() {
+      actual = cuentas[+$("selAccount").value];
+      estado("stAccount", "Selected @" + actual.instagram_business_account.username + " (Instagram ID " + actual.instagram_business_account.id + ")", "ok");
+      $("btnSub").disabled = false; $("btnLoad").disabled = false;
+      cargarConversaciones();
+    }
+
+    $("btnSub").onclick = async () => {
+      try {
+        await api(actual.id + "/subscribed_apps", "post", { subscribed_fields: "messages" }, actual.access_token);
+        const r = await api(actual.id + "/subscribed_apps", "get", {}, actual.access_token);
+        const app = r.data.find(a => a.id === APP_ID);
+        estado("stSub", "Subscribed. Fields: " + ((app && app.subscribed_fields) || ["messages"]).join(", "), "ok");
+      } catch (e) { estado("stSub", e.message, "err"); }
+    };
+
+    $("btnLoad").onclick = cargarConversaciones;
+
+    async function cargarConversaciones() {
+      $("list").innerHTML = '<div class="empty">Loading…</div>';
+      try {
+        const r = await api(actual.id + "/conversations", "get", {
+          platform: "instagram", fields: "id,updated_time,participants,messages.limit(1){message,from}", limit: 50
+        }, actual.access_token);
+        const igId = actual.instagram_business_account.id;
+        $("list").innerHTML = "";
+        if (!r.data.length) { $("list").innerHTML = '<div class="empty">No conversations yet.</div>'; }
+        r.data.forEach(c => {
+          const otro = (c.participants.data || []).find(p => p.id !== igId) || {};
+          const ult = c.messages && c.messages.data[0];
+          const d = document.createElement("div");
+          d.className = "conv";
+          d.innerHTML = "<b></b><span></span>";
+          d.querySelector("b").textContent = "@" + (otro.username || otro.name || otro.id);
+          d.querySelector("span").textContent = (ult ? ult.message : "") + " · " + new Date(c.updated_time).toLocaleString();
+          d.onclick = () => { document.querySelectorAll(".conv").forEach(x => x.classList.remove("sel")); d.classList.add("sel"); abrir(c.id, otro); };
+          $("list").appendChild(d);
+        });
+        estado("stInbox", r.data.length + " conversation(s) loaded.", "ok");
+      } catch (e) { $("list").innerHTML = ""; estado("stInbox", e.message, "err"); }
+    }
+
+    async function abrir(id, otro) {
+      convActual = { id, otro };
+      $("msgs").innerHTML = '<div class="empty">Loading…</div>';
+      try {
+        const r = await api(id, "get", { fields: "messages.limit(30){message,from,created_time}" }, actual.access_token);
+        const igId = actual.instagram_business_account.id;
+        $("msgs").innerHTML = "";
+        (r.messages ? r.messages.data : []).slice().reverse().forEach(m => {
+          const d = document.createElement("div");
+          d.className = "msg " + (m.from && m.from.id === igId ? "out" : "in");
+          d.textContent = m.message || "(attachment)";
+          const s = document.createElement("small"); s.textContent = new Date(m.created_time).toLocaleString();
+          d.appendChild(s); $("msgs").appendChild(d);
+        });
+        $("msgs").scrollTop = $("msgs").scrollHeight;
+        $("txt").disabled = false; $("btnSend").disabled = false;
+      } catch (e) { $("msgs").innerHTML = ""; estado("stInbox", e.message, "err"); }
+    }
+
+    $("btnSend").onclick = async () => {
+      const texto = $("txt").value.trim();
+      if (!texto || !convActual) return;
+      $("btnSend").disabled = true;
+      try {
+        await api(actual.id + "/messages", "post", {
+          recipient: JSON.stringify({ id: convActual.otro.id }),
+          message: JSON.stringify({ text: texto }),
+          messaging_type: "RESPONSE"
+        }, actual.access_token);
+        $("txt").value = "";
+        estado("stInbox", "Reply sent to @" + (convActual.otro.username || convActual.otro.id) + ".", "ok");
+        await abrir(convActual.id, convActual.otro);
+      } catch (e) { estado("stInbox", e.message, "err"); }
+      $("btnSend").disabled = false;
+    };
+  </script>
+  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
+</body>
+</html>
