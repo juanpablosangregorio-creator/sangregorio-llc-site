@@ -183,19 +183,18 @@
       $("list").innerHTML = '<div class="empty">Loading…</div>';
       try {
         const r = await api(actual.id + "/conversations", "get", {
-          platform: "instagram", fields: "id,updated_time,participants,messages.limit(1){message,from}", limit: 50
+          platform: "instagram", fields: "id,updated_time,participants", limit: 20
         }, actual.access_token);
         const igId = actual.instagram_business_account.id;
         $("list").innerHTML = "";
         if (!r.data.length) { $("list").innerHTML = '<div class="empty">No conversations yet.</div>'; }
         r.data.forEach(c => {
           const otro = (c.participants.data || []).find(p => p.id !== igId) || {};
-          const ult = c.messages && c.messages.data[0];
           const d = document.createElement("div");
           d.className = "conv";
           d.innerHTML = "<b></b><span></span>";
           d.querySelector("b").textContent = "@" + (otro.username || otro.name || otro.id);
-          d.querySelector("span").textContent = (ult ? ult.message : "") + " · " + new Date(c.updated_time).toLocaleString();
+          d.querySelector("span").textContent = new Date(c.updated_time).toLocaleString();
           d.onclick = () => { document.querySelectorAll(".conv").forEach(x => x.classList.remove("sel")); d.classList.add("sel"); abrir(c.id, otro); };
           $("list").appendChild(d);
         });
@@ -207,7 +206,7 @@
       convActual = { id, otro };
       $("msgs").innerHTML = '<div class="empty">Loading…</div>';
       try {
-        const r = await api(id, "get", { fields: "messages.limit(30){message,from,created_time}" }, actual.access_token);
+        const r = await api(id, "get", { fields: "messages.limit(20){message,from,created_time}" }, actual.access_token);
         const igId = actual.instagram_business_account.id;
         $("msgs").innerHTML = "";
         (r.messages ? r.messages.data : []).slice().reverse().forEach(m => {
