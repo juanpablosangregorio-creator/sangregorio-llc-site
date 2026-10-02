@@ -122,14 +122,13 @@
       FB.init({ appId: APP_ID, cookie: true, xfbml: false, version: V });
       $("btnLogin").disabled = false;
       estado("stLogin", "Not logged in.");
-      FB.getLoginStatus(r => { if (r.status === "connected") alEntrar(); });
     };
 
     $("btnLogin").onclick = () => FB.login(r => {
       if (r.status === "connected") alEntrar(); else estado("stLogin", "Login cancelled.", "err");
-    }, { config_id: CONFIG_ID });
+    }, { config_id: CONFIG_ID, auth_type: "rerequest" });
 
-    $("btnLogout").onclick = () => FB.logout(() => location.reload());
+    $("btnLogout").onclick = () => location.reload();
 
     async function alEntrar() {
       try {
