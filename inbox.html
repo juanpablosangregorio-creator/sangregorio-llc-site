@@ -111,9 +111,11 @@
 
     function estado(el, txt, tipo) { $(el).textContent = txt; $(el).className = "status " + (tipo || ""); }
 
-    function api(ruta, metodo, params, token) {
+    function api(ruta, metodo, params, token, intento) {
+      intento = intento || 1;
       return new Promise((ok, mal) => {
         FB.api("/" + ruta, metodo || "get", Object.assign({}, params || {}, token ? { access_token: token } : {}), r => {
+          if (r && r.error && r.error.code === 1 && intento < 4) { setTimeout(() => api(ruta, metodo, params, token, intento + 1).then(ok, mal), 800); return; }
           if (!r || r.error) mal(new Error(r && r.error ? r.error.message : "Unknown error")); else ok(r);
         });
       });
