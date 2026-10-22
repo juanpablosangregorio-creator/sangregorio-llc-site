@@ -150,32 +150,28 @@
     .legal-links a:hover{opacity:1}
 
     /* CATALOGUE */
-    .tabs{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:0 0 10px}
-    .tabs a{font-size:13px;font-weight:800;color:var(--navy);background:#fff;border:1px solid var(--line);padding:8px 14px;border-radius:999px;display:inline-flex;gap:8px;align-items:center}
-    .tabs a small{color:var(--muted);font-weight:700}
-    .tabs a:hover{border-color:var(--blue);color:var(--blue)}
-    .cat{margin-top:40px;scroll-margin-top:90px}
-    .cat-head{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:12px;margin-bottom:18px}
-    .cat-head h3{margin:0;color:var(--navy);font-size:1.3rem;letter-spacing:-.02em}
-    .cat-head p{margin:0;color:var(--muted);font-size:.94rem}
-    .items{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-    .item{background:#fff;border:1px solid var(--line);border-radius:24px;overflow:hidden;box-shadow:var(--shadow2);display:flex;flex-direction:column}
-    .item .media img,.item .ph{width:100%;aspect-ratio:1/1;object-fit:cover;display:block;border-bottom:1px solid var(--line);background:var(--ice)}
-    .item .ph{display:grid;place-items:center;padding:28px;text-align:center;background:linear-gradient(135deg,var(--ice),#fff)}
-    .item .ph span{font-weight:900;color:var(--navy2);font-size:1.25rem;letter-spacing:-.02em;line-height:1.2}
-    .ibody{padding:20px 22px 22px;display:flex;flex-direction:column;gap:10px;flex:1}
-    .ibody h3{margin:0;color:var(--navy);font-size:1.1rem;line-height:1.25}
-    .ibody p{margin:0;color:var(--muted);font-size:.92rem}
-    .ibody p.note{font-size:.85rem;color:var(--navy2);font-weight:700}
-    .eds{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto}
-    .eds span{font-size:12px;color:var(--muted);font-weight:700;align-self:center;margin-right:2px}
-    .eds a{font-size:12px;font-weight:800;color:var(--navy);background:var(--ice);border:1px solid var(--line);padding:4px 9px;border-radius:999px}
+    section.catalogue{background:var(--soft);border-top:1px solid var(--line)}
+    .items{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+    .item{background:#fff;border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:var(--shadow2);display:flex;flex-direction:column}
+    .item img{width:100%;height:auto;flex:none;aspect-ratio:1/1;object-fit:cover;display:block;border-bottom:1px solid var(--line);background:var(--ice)}
+    .ibody{padding:14px 16px 16px;display:flex;flex-direction:column;gap:7px;flex:1}
+    .icat{font-size:10.5px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--blue)}
+    .ibody h3{margin:0;color:var(--navy);font-size:.98rem;line-height:1.25}
+    .ibody p{margin:0;color:var(--muted);font-size:.84rem;line-height:1.45}
+    .ibody p.note{font-size:.8rem;color:var(--navy2);font-weight:700}
+    .eds{display:flex;flex-wrap:wrap;gap:5px;margin-top:auto;padding-top:4px}
+    .eds a,.eds summary{font-size:11.5px;font-weight:800;color:var(--navy);background:var(--ice);border:1px solid var(--line);padding:3px 8px;border-radius:999px;cursor:pointer}
     .eds a:hover{background:var(--blue);border-color:var(--blue);color:#fff}
-    .iprice{display:flex;gap:8px;align-items:baseline;font-size:13px;border-top:1px solid var(--line);padding-top:10px}
+    .eds summary{list-style:none;color:var(--muted);background:#fff}
+    .eds summary::-webkit-details-marker{display:none}
+    .eds details{display:contents}
+    .eds details[open] summary{display:none}
+    .eds .more{display:contents}
+    .iprice{display:flex;gap:6px;align-items:baseline;font-size:12px;border-top:1px solid var(--line);padding-top:8px}
     .iprice b{color:var(--navy)}
     .iprice span{color:var(--muted);font-weight:700}
-    @media(max-width:980px){.items{grid-template-columns:1fr 1fr}}
-    @media(max-width:560px){.items{grid-template-columns:1fr}}
+    @media(max-width:980px){.items{grid-template-columns:repeat(3,1fr)}}
+    @media(max-width:720px){.items{grid-template-columns:1fr 1fr;gap:12px}.ibody p{display:none}}
     /* PRODUCT CATALOGUE */
     .catalogue{margin-top:64px}
     .catalogue .section-title{margin-bottom:28px}
@@ -377,281 +373,6 @@
           </div>
         </div>
 
-        <!-- CATALOGUE:START -->
-        <div class="catalogue" id="catalogue">
-          <div class="section-title">
-            <div class="kicker">Current catalogue</div>
-            <h2>Products we sell today</h2>
-            <p>30 product lines across 80 online stores, all owned and operated by SANGREGORIO LLC. Each product links to its own store and checkout, one per language or edition; the price you pay is always the one shown at checkout.</p>
-          </div>
-          <nav class="tabs" aria-label="Categories"><a href="#kitchen">Cooking & nutrition<small>10</small></a><a href="#wellbeing">Home remedies & wellbeing<small>3</small></a><a href="#home">Garden, crafts & DIY<small>4</small></a><a href="#pets">Pets<small>2</small></a><a href="#family">Family, kids & games<small>7</small></a><a href="#work">Business & digital tools<small>4</small></a></nav>
-          <div class="cat" id="kitchen">
-            <div class="cat-head"><h3>Cooking & nutrition</h3><p>Recipe books built around one simple method each, with exact quantities and real portions.</p></div>
-            <div class="items"><article class="item">
-              <div class="media"><img src="images/cat/pan-que-si-puedes.webp" alt="" loading="lazy" width="720" height="720"></div>
-              <div class="ibody">
-                <h3>Bread you can actually eat</h3>
-                <p>80 to 90 recipes for bread, pizza, cakes and snacks without white flour or sugar, sorted with a traffic-light method.</p>
-                <div class="eds"><span>2 stores</span><a href="https://pan-que-si-puedes.impultienda.ar" target="_blank" rel="noopener" title="El Pan que Sí Puedes Comer">Español</a><a href="https://pane-che-puoi-mangiare.impultienda.ar" target="_blank" rel="noopener" title="Il Pane che Puoi Mangiare">Italiano</a></div>
-                <div class="iprice"><b>From USD 6.90</b><span>one-time payment</span></div>
-              </div>
-            </article><article class="item">
-              <div class="media"><img src="images/cat/cucina-menopausa.webp" alt="" loading="lazy" width="720" height="720"></div>
-              <div class="ibody">
-                <h3>The menopause kitchen</h3>
-                <p>A 60-day Mediterranean, anti-inflammatory plan for women after 45: 120 recipes and every menu already written.</p>
-                <div class="eds"><span>2 stores</span><a href="https://cucina-menopausa.impultienda.ar" target="_blank" rel="noopener" title="La cucina della menopausa">Italiano</a><a href="https://programme-60-jours.impultienda.ar" target="_blank" rel="noopener" title="Programme 60 Jours">Français</a></div>
-                <div class="iprice"><b>From USD 16.81</b><span>one-time payment</span></div>
-              </div>
-            </article><article class="item">
-              <div class="media"><img src="images/cat/mundoprobiotico.webp" alt="" loading="lazy" width="720" height="720"></div>
-              <div class="ibody">
-                <h3>Home probiotics and ferments</h3>
-                <p>A kit of five ebooks and five extra guides to make kombucha, kefir, yogurt and ferments at home.</p>
-                <div class="eds"><span>Store</span><a href="https://www.tumundoprobiotico.com" target="_blank" rel="noopener" title="Mundo Probiótico">Español</a></div>
-                <div class="iprice"><b>USD 19.90</b><span>one-time payment</span></div>
-              </div>
-            </article><article class="item">
-              <div class="media"><img src="images/cat/cocina-para-tu-higado.webp" alt="" loading="lazy" width="720" height="720"></div>
-              <div class="ibody">
-                <h3>Cooking for a happy liver</h3>
-                <p>More than 200 light home recipes for breakfast, lunch, dinner and snacks with the Light Plate method.</p>
-                <div class="eds"><span>Store</span><a href="https://cocina-para-tu-higado.impultienda.ar" target="_blank" rel="noopener" title="Cocina para tu Hígado">Español</a></div>
-                <div class="iprice"><b>USD 7.90</b><span>one-time payment</span></div>
-              </div>
-            </article><article class="item">
-              <div class="media"><img src="images/cat/pratos-que-nao-pesam.webp" alt="" loading="lazy" width="720" height="720"></div>
-              <div class="ibody">
-                <h3>Plates that don&#x27;t weigh you down</h3>
-                <p>100 real-food recipes in small portions, built on the Small Plate Rule.</p>
-                <div class="eds"><span>Store</span><a href="https://pratos-que-nao-pesam.impultienda.ar" target="_blank" rel="noopener" title="Pratos que Não Pesam">Português</a></div>
-                <div class="iprice"><b>USD 14.90</b><span>one-time payment</span></div>
-              </div>
-            </article><article class="item">
-              <div class="media"><img src="images/cat/despensa-casera.webp" alt="" loading="lazy" width="720" height="720"></div>
-              <div class="ibody">
-                <h3>The homemade pantry</h3>
-                <p>120 home preserves step by step: pickles, jams, sauces, vegetables in jars and fruit in syrup.</p>
-                <div class="eds"><span>Store</span><a href="https://despensa-casera.impultienda.ar" target="_blank" rel="noopener" title="La Despensa Casera">Español</a></div>
-                <div class="iprice"><b>USD 11.00</b><span>one-time payment</span></div>
-              </div>
-            </article><article class="item">
-              <div class="media"><img src="images/cat/dispensa-fatta-in-casa.webp" alt="" loading="lazy" width="720" height="720"></div>
-              <div class="ibody">
-                <h3>Pantry mixes in a jar</h3>
-                <p>120 dry mixes to keep in jars for cakes, bread and pizza, breakfasts, soups and stock.</p>
-                <div class="eds"><span>Store</span><a href="https://dispensa-fatta-in-casa.impultienda.ar" target="_blank" rel="noopener" title="La dispensa fatta in casa">Italiano</a></div>
-                <div class="iprice"><b>USD 21.99</b><span>one-time payment</span></div>
-              </div>
-            </article><article class="item">
-              <div class="media"><div class="ph"><span>Lunch in a jar</span></div></div>
-              <div class="ibody">
-                <h3>Lunch in a jar</h3>
-                <p>80 one-bowl salads that make a real lunch, each with its card of protein per portion.</p>
-                <div class="eds"><span>Store</span><a href="https://pranzo-in-barattolo.impultienda.ar" target="_blank" rel="noopener" title="Il pranzo in barattolo">Italiano</a></div>
-                <div class="iprice"><b>USD 10.08</b><span>one-time payment</span></div>
-              </div>
-            </article><article class="item">
-              <div class="media"><img src="images/cat/friofeliz.webp" alt="" loading="lazy" width="720" height="720"></div>
-              <div class="ibody">
-                <h3>Ice cream from your freezer</h3>
-                <p>60 creamy ice creams, ice lollies and cold desserts made at home without a machine.</p>
-                <div class="eds"><span>Store</span><a href="https://friofeliz.impultienda.ar" target="_blank" rel="noopener" title="Frío Feliz">Español</a></div>
-                <div class="iprice"><b>USD 14.90</b><span>one-time payment</span></div>
-              </div>
-            </article><article class="item">
-              <div class="media"><img src="images/cat/navidad-para-vender.webp" alt="" loading="lazy" width="720" height="720"></div>
-              <div class="ibody">
-                <h3>Christmas baking to sell</h3>
-                <p>72 tested Christmas recipes, each with its cost, suggested price and packaging idea.</p>
-                <div class="eds"><span>Store</span><a href="https://navidad-para-vender.impultienda.ar" target="_blank" rel="noopener" title="Navidad para Vender">Español</a></div>
-                <div class="iprice"><b>USD 15.90</b><span>one-time payment</span></div>
-              </div>
-            </article></div>
-          </div>
-          <div class="cat" id="wellbeing">
-            <div class="cat-head"><h3>Home remedies & wellbeing</h3><p>Traditional know-how and gentle routines. Educational content, never medical advice.</p></div>
-            <div class="items"><article class="item">
-              <div class="media"><img src="images/cat/laboticacasera.webp" alt="" loading="lazy" width="720" height="720"></div>
-              <div class="ibody">
-                <h3>365 kitchen-cupboard home remedies</h3>
-                <p>Traditional remedies made with what you already have at home: garlic, honey, ginger, herbs. Exact amounts and step-by-step preparation.</p>
-                <div class="eds"><span>8 stores</span><a href="https://www.laboticacasera.com" target="_blank" rel="noopener" title="La Botica Casera">Español</a><a href="https://kitchen-botica.impultienda.ar" target="_blank" rel="noopener" title="The Kitchen Botica 🇺🇸">English</a><a href="https://herbier-grand-mere.impultienda.ar" target="_blank" rel="noopener" title="L&#x27;Herbier de Grand-Mère 🇫🇷">Français</a><a href="https://erbario-nonna.impultienda.ar" target="_blank" rel="noopener" title="L&#x27;Erbario della Nonna 🇮🇹">Italiano</a><a href="https://omas-kuechenapotheke.impultienda.ar" target="_blank" rel="noopener" title="Omas Küchenapotheke 🇩🇪">Deutsch</a><a href="https://omas-huismiddeltjes.impultienda.ar" target="_blank" rel="noopener" title="Oma&#x27;s Huismiddeltjes 🇳🇱">Nederlands</a><a href="https://www.mormorshuskurer.com" target="_blank" rel="noopener" title="Mormors Huskurer">Svenska</a><a href="https://www.babiccinalekarnicka.com" target="_blank" rel="noopener" title="Babiččina lékárnička z kuchyně 🇨🇿">Čeština</a></div>
-                <div class="iprice"><b>From USD 14.00</b><span>one-time payment</span></div>
-              </div>
-            </article><article class="item">
-              <div class="media"><img src="images/cat/cintura40.webp" alt="" loading="lazy" width="720" height="720"></div>
-              <div class="ibody">
-                <h3>Waist challenge 40+</h3>
-                <p>A 28-day home programme for women over 40: 20 minutes, four times a week, no equipment.</p>
-                <div class="eds"><span>Store</span><a href="https://www.cintura40.com" target="_blank" rel="noopener" title="Reto Cintura 40+">Español</a></div>
-                <div class="iprice"><b>USD 14.00</b><span>one-time payment</span></div>
-              </div>
-            </article><article class="item">
-              <div class="media"><img src="images/cat/mentesdeoro.webp" alt="" loading="lazy" width="720" height="720"></div>
-              <div class="ibody">
-                <h3>Active mind workbooks</h3>
-                <p>Twelve printable large-print workbooks with more than 150 exercises on words, numbers and memory.</p>
-                <div class="eds"><span>2 stores</span><a href="https://mentesdeoro.impultienda.ar" target="_blank" rel="noopener" title="Mentes de Oro">Español</a><a href="https://geistigfit.impultienda.ar" target="_blank" rel="noopener" title="Geistig Fit 🇩🇪">Deutsch</a></div>
-                <div class="iprice"><b>From USD 14.90</b><span>one-time payment</span></div>
-              </div>
-            </article></div>
-          </div>
-          <div class="cat" id="home">
-            <div class="cat-head"><h3>Garden, crafts & DIY</h3><p>Practical manuals for making things at home, and for selling what you make.</p></div>
-            <div class="items"><article class="item">
-              <div class="media"><img src="images/cat/bibliadelesqueje.webp" alt="" loading="lazy" width="720" height="720"></div>
-              <div class="ibody">
-                <h3>The cuttings bible</h3>
-                <p>Multiply your plants from cuttings with the Three Windows method, then sell your first batch.</p>
-                <div class="eds"><span>2 stores</span><a href="https://bibliadelesqueje.impultienda.ar" target="_blank" rel="noopener" title="LA BIBLIA DEL ESQUEJE">Español</a><a href="https://www.granlibrokombucha.com" target="_blank" rel="noopener" title="A Bíblia das Mudas 🇧🇷">Português</a></div>
-                <div class="iprice"><b>USD 16.90</b><span>one-time payment</span></div>
-              </div>
-            </article><article class="item">
-              <div class="media"><img src="images/cat/velas-y-jabones.webp" alt="" loading="lazy" width="720" height="720"></div>
-              <div class="ibody">
-                <h3>Candles and soaps that sell</h3>
-                <p>60 tested recipes for scented candles and soaps with exact proportions, cost and suggested price.</p>
-                <div class="eds"><span>2 stores</span><a href="https://velas-y-jabones.impultienda.ar" target="_blank" rel="noopener" title="Velas y Jabones que se Venden">Español</a><a href="https://atelier-fait-maison.impultienda.ar" target="_blank" rel="noopener" title="Atelier Fait Maison">Français</a></div>
-                <div class="iprice"><b>From USD 15.90</b><span>one-time payment</span></div>
-              </div>
-            </article><article class="item">
-              <div class="media"><img src="images/cat/plans-meubles-bois.webp" alt="" loading="lazy" width="720" height="720"></div>
-              <div class="ibody">
-                <h3>Wooden furniture plans</h3>
-                <p>30 millimetre-accurate plans for bookcases, storage, tables and benches.</p>
-                <div class="eds"><span>Store</span><a href="https://plans-meubles-bois.impultienda.ar" target="_blank" rel="noopener" title="Débit Juste">Français</a></div>
-                <div class="iprice"><b>USD 19.04</b><span>one-time payment</span></div>
-              </div>
-            </article><article class="item">
-              <div class="media"><div class="ph"><span>Metalwork plans</span></div></div>
-              <div class="ibody">
-                <h3>Metalwork plans</h3>
-                <p>127 ready-to-build plans for light metalwork: tables, benches, shelves, grills and gates.</p>
-                <div class="eds"><span>Store</span><a href="https://tallerdelherrero.impultienda.ar" target="_blank" rel="noopener" title="Taller del Herrero">Español</a></div>
-                <div class="iprice"><b>USD 14.90</b><span>one-time payment</span></div>
-              </div>
-            </article></div>
-          </div>
-          <div class="cat" id="pets">
-            <div class="cat-head"><h3>Pets</h3><p>Home cooking and professional study material for people who live and work with animals.</p></div>
-            <div class="items"><article class="item">
-              <div class="media"><img src="images/cat/cocina-para-tu-perro.webp" alt="" loading="lazy" width="720" height="720"></div>
-              <div class="ibody">
-                <h3>Home cooking for your dog</h3>
-                <p>Homemade dog meals with the Safe Plate method: cooked protein, vegetables and the right portion for each size.</p>
-                <div class="eds"><span>2 stores</span><a href="https://cocina-para-tu-perro.impultienda.ar" target="_blank" rel="noopener" title="Cocina para tu Perro">Español</a><a href="https://la-gamelle-maison.impultienda.ar" target="_blank" rel="noopener" title="La Gamelle Maison">Français</a></div>
-                <div class="iprice"><b>From USD 15.90</b><span>one-time payment</span></div>
-              </div>
-            </article><article class="item">
-              <div class="media"><div class="ph"><span>Reasoned clinical cases</span></div></div>
-              <div class="ibody">
-                <h3>Reasoned clinical cases</h3>
-                <p>60 reasoned clinical cases of dogs and cats across 12 body systems, for veterinary students and professionals.</p>
-                <div class="eds"><span>Store</span><a href="https://casi-clinici-ragionati.impultienda.ar" target="_blank" rel="noopener" title="Casi clinici ragionati">Italiano</a></div>
-                <div class="iprice"><b>USD 19.04</b><span>one-time payment</span></div>
-              </div>
-            </article></div>
-          </div>
-          <div class="cat" id="family">
-            <div class="cat-head"><h3>Family, kids & games</h3><p>Printable kits and books for curious children, and games for the whole family.</p></div>
-            <div class="items"><article class="item">
-              <div class="media"><img src="images/cat/kit-emociones.webp" alt="" loading="lazy" width="720" height="720"></div>
-              <div class="ibody">
-                <h3>Little emotions</h3>
-                <p>A printable kit with eight illustrated stories, one per emotion, to recognise and talk about feelings.</p>
-                <div class="eds"><span>Store</span><a href="https://kit-emociones.impultienda.ar" target="_blank" rel="noopener" title="Pequeñas Emociones">Español</a></div>
-                <div class="iprice"><b>USD 15.90</b><span>one-time payment</span></div>
-              </div>
-            </article><article class="item">
-              <div class="media"><img src="images/cat/juegos-concentracion.webp" alt="" loading="lazy" width="720" height="720"></div>
-              <div class="ibody">
-                <h3>Little detectives</h3>
-                <p>150 attention and focus missions in three levels for ages 4 to 10: mazes, spot the difference, codes.</p>
-                <div class="eds"><span>Store</span><a href="https://juegos-concentracion.impultienda.ar" target="_blank" rel="noopener" title="Mentes Atentas">Español</a></div>
-                <div class="iprice"><b>USD 16.90</b><span>one-time payment</span></div>
-              </div>
-            </article><article class="item">
-              <div class="media"><img src="images/cat/eveil-sensoriel.webp" alt="" loading="lazy" width="720" height="720"></div>
-              <div class="ibody">
-                <h3>Early sensory play</h3>
-                <p>100 sensory and play activities for ages 0 to 5, made with objects you already have.</p>
-                <div class="eds"><span>Store</span><a href="https://eveil-sensoriel.impultienda.ar" target="_blank" rel="noopener" title="Petit Éveil 🇫🇷">Français</a></div>
-                <div class="iprice"><b>USD 19.04</b><span>one-time payment</span></div>
-              </div>
-            </article><article class="item">
-              <div class="media"><img src="images/cat/curiousminds.webp" alt="" loading="lazy" width="720" height="720"></div>
-              <div class="ibody">
-                <h3>The illustrated encyclopedia for curious kids</h3>
-                <p>An eleven-book illustrated encyclopedia for ages 6 to 12, with printable bonuses.</p>
-                <div class="eds"><span>25 stores</span><a href="https://www.mentescuriosas.store" target="_blank" rel="noopener" title="MENTES CURIOSAS">Español</a><a href="https://www.mentescuriosaskids.com" target="_blank" rel="noopener" title="MENTES CURIOSAS">Español</a><a href="https://www.shopcuriousminds.com" target="_blank" rel="noopener" title="Curious Minds 🇺🇸">English</a><a href="https://www.piccolicuriosi.com" target="_blank" rel="noopener" title="Piccoli Curiosi 🇮🇹">Italiano</a><a href="https://www.mespetitscurieux.com" target="_blank" rel="noopener" title="Petits Curieux 🇫🇷">Français</a><a href="https://www.nospetitscurieux.com" target="_blank" rel="noopener" title="Petits Curieux 🇫🇷">Français</a><a href="https://www.meinekleinenentdecker.com" target="_blank" rel="noopener" title="Kleine Entdecker 🇩🇪">Deutsch</a><a href="https://www.milporques.com" target="_blank" rel="noopener" title="Mil Porquês">Português</a><a href="https://www.duizendwaaroms.com" target="_blank" rel="noopener" title="Duizend Waaroms 🇳🇱">Nederlands</a><a href="https://www.tusenvarfor.com" target="_blank" rel="noopener" title="Tusen Varför">Svenska</a><a href="https://www.tusindhvorfor.com" target="_blank" rel="noopener" title="Tusind Hvorfor 🇩🇰">Dansk</a><a href="https://www.xiliagiati.com" target="_blank" rel="noopener" title="Χίλια Γιατί 🇬🇷">Ελληνικά</a><a href="https://www.deceuri.com" target="_blank" rel="noopener" title="De ce-uri 🇷🇴">Română</a><a href="https://www.tisicproc.com" target="_blank" rel="noopener" title="Tisíc proč 🇨🇿">Čeština</a><a href="https://www.ezermiert.com" target="_blank" rel="noopener" title="Ezer Miért 🇭🇺">Magyar</a><a href="https://www.tisoczakajev.com" target="_blank" rel="noopener" title="Tisoč zakajev 🇸🇮">Slovenščina</a><a href="https://www.tisucuzasto.com" target="_blank" rel="noopener" title="Tisuću zašto 🇭🇷">Hrvatski</a><a href="https://www.hilyadazashto.com" target="_blank" rel="noopener" title="Хиляда защо 🇧🇬">Български</a><a href="https://www.binneden.com" target="_blank" rel="noopener" title="Bin Neden 🇹🇷">Türkçe</a><a href="https://www.alflimatha.com" target="_blank" rel="noopener" title="ألف لماذا 🇸🇦">العربية</a><a href="https://www.ciekawskieglowki.com" target="_blank" rel="noopener" title="Ciekawskie Główki">Polski</a><a href="https://www.asmentescuriosas.com" target="_blank" rel="noopener" title="Mentes Curiosas">Português (PT)</a><a href="https://www.hiljaduzasto.com" target="_blank" rel="noopener" title="Hiljadu zašto">Српски</a><a href="https://www.tisicpreco.com" target="_blank" rel="noopener" title="Tisíc prečo">Slovenčina</a><a href="https://www.tysiachachomu.com" target="_blank" rel="noopener" title="Тисяча чому">Українська</a></div>
-                <div class="iprice"><b>USD 27.99</b><span>one-time payment</span></div>
-              </div>
-            </article><article class="item">
-              <div class="media"><div class="ph"><span>Party in a box</span></div></div>
-              <div class="ibody">
-                <h3>Party in a box</h3>
-                <p>Themed printable party kits: invitations, banners, labels, games and table decorations.</p>
-                <div class="eds"><span>Store</span><a href="https://la-festa-pronta.impultienda.ar" target="_blank" rel="noopener" title="La festa pronta">Italiano</a></div>
-                <div class="iprice"><b>USD 13.44</b><span>one-time payment</span></div>
-              </div>
-            </article><article class="item">
-              <div class="media"><div class="ph"><span>Monthly worksheets</span></div></div>
-              <div class="ibody">
-                <h3>Monthly worksheets</h3>
-                <p>90 photocopiable worksheets for first grade, ten a month from September to April.</p>
-                <div class="eds"><span>Store</span><a href="https://schede-del-mese.impultienda.ar" target="_blank" rel="noopener" title="Le schede del mese">Italiano</a></div>
-                <div class="iprice"><b>USD 15.68</b><span>one-time payment</span></div>
-              </div>
-            </article><article class="item">
-              <div class="media"><img src="images/cat/mordakten.webp" alt="" loading="lazy" width="720" height="720"></div>
-              <div class="ibody">
-                <h3>Murder mystery case files</h3>
-                <p>Three complete police investigations as printable case files to solve at home with friends.</p>
-                <div class="eds"><span>Store</span><a href="https://mordakten.impultienda.ar" target="_blank" rel="noopener" title="Mordakten">Svenska</a></div>
-                <div class="iprice"><b>USD 26.90</b><span>one-time payment</span></div>
-              </div>
-            </article></div>
-          </div>
-          <div class="cat" id="work">
-            <div class="cat-head"><h3>Business & digital tools</h3><p>Done-for-you digital designs and practical tools for small businesses and professionals.</p></div>
-            <div class="items"><article class="item">
-              <div class="media"><img src="images/cat/vitrina-carta.webp" alt="" loading="lazy" width="720" height="720"></div>
-              <div class="ibody">
-                <h3>Interactive menus and catalogues, done for you</h3>
-                <p>Send us your menu, catalogue or price list and receive an interactive version with QR code and WhatsApp ordering.</p><p class="note">Delivered by email within 1 hour of receiving your material.</p>
-                <div class="eds"><span>9 stores</span><a href="https://vitrina-carta.impultienda.ar" target="_blank" rel="noopener" title="Vitrina Viva · Carta interactiva">Restaurant menu</a><a href="https://vitrina-cafe.impultienda.ar" target="_blank" rel="noopener" title="Vitrina Viva Café">Café</a><a href="https://vitrina-bar.impultienda.ar" target="_blank" rel="noopener" title="Vitrina Viva Bar">Bar</a><a href="https://vitrina-delivery.impultienda.ar" target="_blank" rel="noopener" title="Vitrina Viva Delivery">Delivery</a><a href="https://vitrina-viandas.impultienda.ar" target="_blank" rel="noopener" title="Vitrina Viva Viandas">Weekly menu</a><a href="https://vitrina-hotel.impultienda.ar" target="_blank" rel="noopener" title="Vitrina Viva Hotel">Hotel guide</a><a href="https://vitrina-turnos.impultienda.ar" target="_blank" rel="noopener" title="Vitrina Viva Turnos">Services</a><a href="https://vitrina-catalogo.impultienda.ar" target="_blank" rel="noopener" title="Vitrina Viva · Catálogo interactivo">Catalogue</a><a href="https://vitrina-mayorista.impultienda.ar" target="_blank" rel="noopener" title="Vitrina Viva Mayorista">Wholesale</a></div>
-                <div class="iprice"><b>USD 27.00</b><span>one-time payment</span></div>
-              </div>
-            </article><article class="item">
-              <div class="media"><img src="images/cat/lienzo-web.webp" alt="" loading="lazy" width="720" height="720"></div>
-              <div class="ibody">
-                <h3>A professional website in 48 hours</h3>
-                <p>Fill in a five-minute form and receive your own one-page website by email.</p><p class="note">Delivered by email within 48 hours of receiving the form.</p>
-                <div class="eds"><span>6 stores</span><a href="https://lienzo-web.impultienda.ar" target="_blank" rel="noopener" title="Lienzo">General</a><a href="https://despacho.impultienda.ar" target="_blank" rel="noopener" title="Despacho">Professionals</a><a href="https://vidriera.impultienda.ar" target="_blank" rel="noopener" title="Vidriera">Shops</a><a href="https://origen.impultienda.ar" target="_blank" rel="noopener" title="Origen">Beauty</a><a href="https://obra.impultienda.ar" target="_blank" rel="noopener" title="Obra">Trades</a><a href="https://persiana.impultienda.ar" target="_blank" rel="noopener" title="Persiana">Home &amp; hardware</a></div>
-                <div class="iprice"><b>USD 97.00</b><span>one-time payment</span></div>
-              </div>
-            </article><article class="item">
-              <div class="media"><img src="images/cat/foglio-per-foglio.webp" alt="" loading="lazy" width="720" height="720"></div>
-              <div class="ibody">
-                <h3>Excel, sheet by sheet</h3>
-                <p>64 self-correcting Excel exercises in 16 files, with solutions.</p>
-                <div class="eds"><span>Store</span><a href="https://foglio-per-foglio.impultienda.ar" target="_blank" rel="noopener" title="Foglio per foglio">Italiano</a></div>
-                <div class="iprice"><b>USD 10.08</b><span>one-time payment</span></div>
-              </div>
-            </article><article class="item">
-              <div class="media"><img src="images/cat/prompts-metier.webp" alt="" loading="lazy" width="720" height="720"></div>
-              <div class="ibody">
-                <h3>Prompts for your profession</h3>
-                <p>A method and 225 ready-to-use AI prompts for ten professions.</p>
-                <div class="eds"><span>Store</span><a href="https://prompts-metier.impultienda.ar" target="_blank" rel="noopener" title="Prompts Métier">Français</a></div>
-                <div class="iprice"><b>USD 19.05</b><span>one-time payment</span></div>
-              </div>
-            </article></div>
-          </div>
-          <p class="roadmap">Most stores also offer optional add-ons before or after payment, each with its own price shown before you accept it. We add new titles and languages regularly; this page is updated as they launch. Prices are listed in USD; depending on the customer's country, the checkout may present the equivalent amount in local currency.</p>
-        </div>
-        <!-- CATALOGUE:END -->
       </div>
     </section>
 
@@ -773,6 +494,289 @@
         </form>
       </div>
     </section>
+<!-- CATALOGUE:START -->
+    <section class="catalogue" id="catalogue">
+      <div class="wrap">
+          <div class="section-title">
+            <div class="kicker">Current catalogue</div>
+            <h2>Products we sell today</h2>
+            <p>30 product lines across 80 online stores, all owned and operated by SANGREGORIO LLC. Each product links to its own store and checkout, one per language or edition; the price you pay is always the one shown at checkout.</p>
+          </div>
+          <div class="items"><article class="item">
+              <img src="images/cat/pan-que-si-puedes.webp" alt="" loading="lazy" width="720" height="720">
+              <div class="ibody">
+                <span class="icat">Cooking &amp; nutrition</span>
+                <h3>Bread you can actually eat</h3>
+                <p>80 to 90 recipes for bread, pizza, cakes and snacks without white flour or sugar, sorted with a traffic-light method.</p>
+                <div class="eds"><a href="https://pan-que-si-puedes.impultienda.ar" target="_blank" rel="noopener" title="El Pan que Sí Puedes Comer">Español</a><a href="https://pane-che-puoi-mangiare.impultienda.ar" target="_blank" rel="noopener" title="Il Pane che Puoi Mangiare">Italiano</a></div>
+                <div class="iprice"><b>From USD 6.90</b><span>one-time payment</span></div>
+              </div>
+            </article><article class="item">
+              <img src="images/cat/laboticacasera.webp" alt="" loading="lazy" width="720" height="720">
+              <div class="ibody">
+                <span class="icat">Home remedies &amp; wellbeing</span>
+                <h3>365 kitchen-cupboard home remedies</h3>
+                <p>Traditional remedies made with what you already have at home: garlic, honey, ginger, herbs. Exact amounts and step-by-step preparation.</p>
+                <div class="eds"><a href="https://www.laboticacasera.com" target="_blank" rel="noopener" title="La Botica Casera">Español</a><a href="https://kitchen-botica.impultienda.ar" target="_blank" rel="noopener" title="The Kitchen Botica 🇺🇸">English</a><a href="https://herbier-grand-mere.impultienda.ar" target="_blank" rel="noopener" title="L&#x27;Herbier de Grand-Mère 🇫🇷">Français</a><details><summary>+5 more</summary><div class="more"><a href="https://erbario-nonna.impultienda.ar" target="_blank" rel="noopener" title="L&#x27;Erbario della Nonna 🇮🇹">Italiano</a><a href="https://omas-kuechenapotheke.impultienda.ar" target="_blank" rel="noopener" title="Omas Küchenapotheke 🇩🇪">Deutsch</a><a href="https://omas-huismiddeltjes.impultienda.ar" target="_blank" rel="noopener" title="Oma&#x27;s Huismiddeltjes 🇳🇱">Nederlands</a><a href="https://www.mormorshuskurer.com" target="_blank" rel="noopener" title="Mormors Huskurer">Svenska</a><a href="https://www.babiccinalekarnicka.com" target="_blank" rel="noopener" title="Babiččina lékárnička z kuchyně 🇨🇿">Čeština</a></div></details></div>
+                <div class="iprice"><b>From USD 14.00</b><span>one-time payment</span></div>
+              </div>
+            </article><article class="item">
+              <img src="images/cat/bibliadelesqueje.webp" alt="" loading="lazy" width="720" height="720">
+              <div class="ibody">
+                <span class="icat">Garden, crafts &amp; DIY</span>
+                <h3>The cuttings bible</h3>
+                <p>Multiply your plants from cuttings with the Three Windows method, then sell your first batch.</p>
+                <div class="eds"><a href="https://bibliadelesqueje.impultienda.ar" target="_blank" rel="noopener" title="LA BIBLIA DEL ESQUEJE">Español</a><a href="https://www.granlibrokombucha.com" target="_blank" rel="noopener" title="A Bíblia das Mudas 🇧🇷">Português</a></div>
+                <div class="iprice"><b>USD 16.90</b><span>one-time payment</span></div>
+              </div>
+            </article><article class="item">
+              <img src="images/cat/cocina-para-tu-perro.webp" alt="" loading="lazy" width="720" height="720">
+              <div class="ibody">
+                <span class="icat">Pets</span>
+                <h3>Home cooking for your dog</h3>
+                <p>Homemade dog meals with the Safe Plate method: cooked protein, vegetables and the right portion for each size.</p>
+                <div class="eds"><a href="https://cocina-para-tu-perro.impultienda.ar" target="_blank" rel="noopener" title="Cocina para tu Perro">Español</a><a href="https://la-gamelle-maison.impultienda.ar" target="_blank" rel="noopener" title="La Gamelle Maison">Français</a></div>
+                <div class="iprice"><b>From USD 15.90</b><span>one-time payment</span></div>
+              </div>
+            </article><article class="item">
+              <img src="images/cat/kit-emociones.webp" alt="" loading="lazy" width="720" height="720">
+              <div class="ibody">
+                <span class="icat">Family, kids &amp; games</span>
+                <h3>Little emotions</h3>
+                <p>A printable kit with eight illustrated stories, one per emotion, to recognise and talk about feelings.</p>
+                <div class="eds"><a href="https://kit-emociones.impultienda.ar" target="_blank" rel="noopener" title="Pequeñas Emociones">Español</a></div>
+                <div class="iprice"><b>USD 15.90</b><span>one-time payment</span></div>
+              </div>
+            </article><article class="item">
+              <img src="images/cat/vitrina-carta.webp" alt="" loading="lazy" width="720" height="720">
+              <div class="ibody">
+                <span class="icat">Business &amp; digital tools</span>
+                <h3>Interactive menus and catalogues, done for you</h3>
+                <p>Send us your menu, catalogue or price list and receive an interactive version with QR code and WhatsApp ordering.</p><p class="note">Delivered by email within 1 hour of receiving your material.</p>
+                <div class="eds"><a href="https://vitrina-carta.impultienda.ar" target="_blank" rel="noopener" title="Vitrina Viva · Carta interactiva">Restaurant menu</a><a href="https://vitrina-cafe.impultienda.ar" target="_blank" rel="noopener" title="Vitrina Viva Café">Café</a><a href="https://vitrina-bar.impultienda.ar" target="_blank" rel="noopener" title="Vitrina Viva Bar">Bar</a><details><summary>+6 more</summary><div class="more"><a href="https://vitrina-delivery.impultienda.ar" target="_blank" rel="noopener" title="Vitrina Viva Delivery">Delivery</a><a href="https://vitrina-viandas.impultienda.ar" target="_blank" rel="noopener" title="Vitrina Viva Viandas">Weekly menu</a><a href="https://vitrina-hotel.impultienda.ar" target="_blank" rel="noopener" title="Vitrina Viva Hotel">Hotel guide</a><a href="https://vitrina-turnos.impultienda.ar" target="_blank" rel="noopener" title="Vitrina Viva Turnos">Services</a><a href="https://vitrina-catalogo.impultienda.ar" target="_blank" rel="noopener" title="Vitrina Viva · Catálogo interactivo">Catalogue</a><a href="https://vitrina-mayorista.impultienda.ar" target="_blank" rel="noopener" title="Vitrina Viva Mayorista">Wholesale</a></div></details></div>
+                <div class="iprice"><b>USD 27.00</b><span>one-time payment</span></div>
+              </div>
+            </article><article class="item">
+              <img src="images/cat/cucina-menopausa.webp" alt="" loading="lazy" width="720" height="720">
+              <div class="ibody">
+                <span class="icat">Cooking &amp; nutrition</span>
+                <h3>The menopause kitchen</h3>
+                <p>A 60-day Mediterranean, anti-inflammatory plan for women after 45: 120 recipes and every menu already written.</p>
+                <div class="eds"><a href="https://cucina-menopausa.impultienda.ar" target="_blank" rel="noopener" title="La cucina della menopausa">Italiano</a><a href="https://programme-60-jours.impultienda.ar" target="_blank" rel="noopener" title="Programme 60 Jours">Français</a></div>
+                <div class="iprice"><b>From USD 16.81</b><span>one-time payment</span></div>
+              </div>
+            </article><article class="item">
+              <img src="images/cat/cintura40.webp" alt="" loading="lazy" width="720" height="720">
+              <div class="ibody">
+                <span class="icat">Home remedies &amp; wellbeing</span>
+                <h3>Waist challenge 40+</h3>
+                <p>A 28-day home programme for women over 40: 20 minutes, four times a week, no equipment.</p>
+                <div class="eds"><a href="https://www.cintura40.com" target="_blank" rel="noopener" title="Reto Cintura 40+">Español</a></div>
+                <div class="iprice"><b>USD 14.00</b><span>one-time payment</span></div>
+              </div>
+            </article><article class="item">
+              <img src="images/cat/velas-y-jabones.webp" alt="" loading="lazy" width="720" height="720">
+              <div class="ibody">
+                <span class="icat">Garden, crafts &amp; DIY</span>
+                <h3>Candles and soaps that sell</h3>
+                <p>60 tested recipes for scented candles and soaps with exact proportions, cost and suggested price.</p>
+                <div class="eds"><a href="https://velas-y-jabones.impultienda.ar" target="_blank" rel="noopener" title="Velas y Jabones que se Venden">Español</a><a href="https://atelier-fait-maison.impultienda.ar" target="_blank" rel="noopener" title="Atelier Fait Maison">Français</a></div>
+                <div class="iprice"><b>From USD 15.90</b><span>one-time payment</span></div>
+              </div>
+            </article><article class="item">
+              <img src="images/cat/casi-clinici-ragionati.webp" alt="" loading="lazy" width="720" height="720">
+              <div class="ibody">
+                <span class="icat">Pets</span>
+                <h3>Reasoned clinical cases</h3>
+                <p>60 reasoned clinical cases of dogs and cats across 12 body systems, for veterinary students and professionals.</p>
+                <div class="eds"><a href="https://casi-clinici-ragionati.impultienda.ar" target="_blank" rel="noopener" title="Casi clinici ragionati">Italiano</a></div>
+                <div class="iprice"><b>USD 19.04</b><span>one-time payment</span></div>
+              </div>
+            </article><article class="item">
+              <img src="images/cat/juegos-concentracion.webp" alt="" loading="lazy" width="720" height="720">
+              <div class="ibody">
+                <span class="icat">Family, kids &amp; games</span>
+                <h3>Little detectives</h3>
+                <p>150 attention and focus missions in three levels for ages 4 to 10: mazes, spot the difference, codes.</p>
+                <div class="eds"><a href="https://juegos-concentracion.impultienda.ar" target="_blank" rel="noopener" title="Mentes Atentas">Español</a></div>
+                <div class="iprice"><b>USD 16.90</b><span>one-time payment</span></div>
+              </div>
+            </article><article class="item">
+              <img src="images/cat/lienzo-web.webp" alt="" loading="lazy" width="720" height="720">
+              <div class="ibody">
+                <span class="icat">Business &amp; digital tools</span>
+                <h3>A professional website in 48 hours</h3>
+                <p>Fill in a five-minute form and receive your own one-page website by email.</p><p class="note">Delivered by email within 48 hours of receiving the form.</p>
+                <div class="eds"><a href="https://lienzo-web.impultienda.ar" target="_blank" rel="noopener" title="Lienzo">General</a><a href="https://despacho.impultienda.ar" target="_blank" rel="noopener" title="Despacho">Professionals</a><a href="https://vidriera.impultienda.ar" target="_blank" rel="noopener" title="Vidriera">Shops</a><details><summary>+3 more</summary><div class="more"><a href="https://origen.impultienda.ar" target="_blank" rel="noopener" title="Origen">Beauty</a><a href="https://obra.impultienda.ar" target="_blank" rel="noopener" title="Obra">Trades</a><a href="https://persiana.impultienda.ar" target="_blank" rel="noopener" title="Persiana">Home &amp; hardware</a></div></details></div>
+                <div class="iprice"><b>USD 97.00</b><span>one-time payment</span></div>
+              </div>
+            </article><article class="item">
+              <img src="images/cat/mundoprobiotico.webp" alt="" loading="lazy" width="720" height="720">
+              <div class="ibody">
+                <span class="icat">Cooking &amp; nutrition</span>
+                <h3>Home probiotics and ferments</h3>
+                <p>A kit of five ebooks and five extra guides to make kombucha, kefir, yogurt and ferments at home.</p>
+                <div class="eds"><a href="https://www.tumundoprobiotico.com" target="_blank" rel="noopener" title="Mundo Probiótico">Español</a></div>
+                <div class="iprice"><b>USD 19.90</b><span>one-time payment</span></div>
+              </div>
+            </article><article class="item">
+              <img src="images/cat/mentesdeoro.webp" alt="" loading="lazy" width="720" height="720">
+              <div class="ibody">
+                <span class="icat">Home remedies &amp; wellbeing</span>
+                <h3>Active mind workbooks</h3>
+                <p>Twelve printable large-print workbooks with more than 150 exercises on words, numbers and memory.</p>
+                <div class="eds"><a href="https://mentesdeoro.impultienda.ar" target="_blank" rel="noopener" title="Mentes de Oro">Español</a><a href="https://geistigfit.impultienda.ar" target="_blank" rel="noopener" title="Geistig Fit 🇩🇪">Deutsch</a></div>
+                <div class="iprice"><b>From USD 14.90</b><span>one-time payment</span></div>
+              </div>
+            </article><article class="item">
+              <img src="images/cat/plans-meubles-bois.webp" alt="" loading="lazy" width="720" height="720">
+              <div class="ibody">
+                <span class="icat">Garden, crafts &amp; DIY</span>
+                <h3>Wooden furniture plans</h3>
+                <p>30 millimetre-accurate plans for bookcases, storage, tables and benches.</p>
+                <div class="eds"><a href="https://plans-meubles-bois.impultienda.ar" target="_blank" rel="noopener" title="Débit Juste">Français</a></div>
+                <div class="iprice"><b>USD 19.04</b><span>one-time payment</span></div>
+              </div>
+            </article><article class="item">
+              <img src="images/cat/eveil-sensoriel.webp" alt="" loading="lazy" width="720" height="720">
+              <div class="ibody">
+                <span class="icat">Family, kids &amp; games</span>
+                <h3>Early sensory play</h3>
+                <p>100 sensory and play activities for ages 0 to 5, made with objects you already have.</p>
+                <div class="eds"><a href="https://eveil-sensoriel.impultienda.ar" target="_blank" rel="noopener" title="Petit Éveil 🇫🇷">Français</a></div>
+                <div class="iprice"><b>USD 19.04</b><span>one-time payment</span></div>
+              </div>
+            </article><article class="item">
+              <img src="images/cat/foglio-per-foglio.webp" alt="" loading="lazy" width="720" height="720">
+              <div class="ibody">
+                <span class="icat">Business &amp; digital tools</span>
+                <h3>Excel, sheet by sheet</h3>
+                <p>64 self-correcting Excel exercises in 16 files, with solutions.</p>
+                <div class="eds"><a href="https://foglio-per-foglio.impultienda.ar" target="_blank" rel="noopener" title="Foglio per foglio">Italiano</a></div>
+                <div class="iprice"><b>USD 10.08</b><span>one-time payment</span></div>
+              </div>
+            </article><article class="item">
+              <img src="images/cat/cocina-para-tu-higado.webp" alt="" loading="lazy" width="720" height="720">
+              <div class="ibody">
+                <span class="icat">Cooking &amp; nutrition</span>
+                <h3>Cooking for a happy liver</h3>
+                <p>More than 200 light home recipes for breakfast, lunch, dinner and snacks with the Light Plate method.</p>
+                <div class="eds"><a href="https://cocina-para-tu-higado.impultienda.ar" target="_blank" rel="noopener" title="Cocina para tu Hígado">Español</a></div>
+                <div class="iprice"><b>USD 7.90</b><span>one-time payment</span></div>
+              </div>
+            </article><article class="item">
+              <img src="images/cat/tallerdelherrero.webp" alt="" loading="lazy" width="720" height="720">
+              <div class="ibody">
+                <span class="icat">Garden, crafts &amp; DIY</span>
+                <h3>Metalwork plans</h3>
+                <p>127 ready-to-build plans for light metalwork: tables, benches, shelves, grills and gates.</p>
+                <div class="eds"><a href="https://tallerdelherrero.impultienda.ar" target="_blank" rel="noopener" title="Taller del Herrero">Español</a></div>
+                <div class="iprice"><b>USD 14.90</b><span>one-time payment</span></div>
+              </div>
+            </article><article class="item">
+              <img src="images/cat/la-festa-pronta.webp" alt="" loading="lazy" width="720" height="720">
+              <div class="ibody">
+                <span class="icat">Family, kids &amp; games</span>
+                <h3>Party in a box</h3>
+                <p>Themed printable party kits: invitations, banners, labels, games and table decorations.</p>
+                <div class="eds"><a href="https://la-festa-pronta.impultienda.ar" target="_blank" rel="noopener" title="La festa pronta">Italiano</a></div>
+                <div class="iprice"><b>USD 13.44</b><span>one-time payment</span></div>
+              </div>
+            </article><article class="item">
+              <img src="images/cat/curiousminds.webp" alt="" loading="lazy" width="720" height="720">
+              <div class="ibody">
+                <span class="icat">Family, kids &amp; games</span>
+                <h3>The illustrated encyclopedia for curious kids</h3>
+                <p>An eleven-book illustrated encyclopedia for ages 6 to 12, with printable bonuses.</p>
+                <div class="eds"><a href="https://www.mentescuriosas.store" target="_blank" rel="noopener" title="MENTES CURIOSAS">Español</a><a href="https://www.mentescuriosaskids.com" target="_blank" rel="noopener" title="MENTES CURIOSAS">Español</a><a href="https://www.shopcuriousminds.com" target="_blank" rel="noopener" title="Curious Minds 🇺🇸">English</a><details><summary>+22 more</summary><div class="more"><a href="https://www.piccolicuriosi.com" target="_blank" rel="noopener" title="Piccoli Curiosi 🇮🇹">Italiano</a><a href="https://www.mespetitscurieux.com" target="_blank" rel="noopener" title="Petits Curieux 🇫🇷">Français</a><a href="https://www.nospetitscurieux.com" target="_blank" rel="noopener" title="Petits Curieux 🇫🇷">Français</a><a href="https://www.meinekleinenentdecker.com" target="_blank" rel="noopener" title="Kleine Entdecker 🇩🇪">Deutsch</a><a href="https://www.milporques.com" target="_blank" rel="noopener" title="Mil Porquês">Português</a><a href="https://www.duizendwaaroms.com" target="_blank" rel="noopener" title="Duizend Waaroms 🇳🇱">Nederlands</a><a href="https://www.tusenvarfor.com" target="_blank" rel="noopener" title="Tusen Varför">Svenska</a><a href="https://www.tusindhvorfor.com" target="_blank" rel="noopener" title="Tusind Hvorfor 🇩🇰">Dansk</a><a href="https://www.xiliagiati.com" target="_blank" rel="noopener" title="Χίλια Γιατί 🇬🇷">Ελληνικά</a><a href="https://www.deceuri.com" target="_blank" rel="noopener" title="De ce-uri 🇷🇴">Română</a><a href="https://www.tisicproc.com" target="_blank" rel="noopener" title="Tisíc proč 🇨🇿">Čeština</a><a href="https://www.ezermiert.com" target="_blank" rel="noopener" title="Ezer Miért 🇭🇺">Magyar</a><a href="https://www.tisoczakajev.com" target="_blank" rel="noopener" title="Tisoč zakajev 🇸🇮">Slovenščina</a><a href="https://www.tisucuzasto.com" target="_blank" rel="noopener" title="Tisuću zašto 🇭🇷">Hrvatski</a><a href="https://www.hilyadazashto.com" target="_blank" rel="noopener" title="Хиляда защо 🇧🇬">Български</a><a href="https://www.binneden.com" target="_blank" rel="noopener" title="Bin Neden 🇹🇷">Türkçe</a><a href="https://www.alflimatha.com" target="_blank" rel="noopener" title="ألف لماذا 🇸🇦">العربية</a><a href="https://www.ciekawskieglowki.com" target="_blank" rel="noopener" title="Ciekawskie Główki">Polski</a><a href="https://www.asmentescuriosas.com" target="_blank" rel="noopener" title="Mentes Curiosas">Português (PT)</a><a href="https://www.hiljaduzasto.com" target="_blank" rel="noopener" title="Hiljadu zašto">Српски</a><a href="https://www.tisicpreco.com" target="_blank" rel="noopener" title="Tisíc prečo">Slovenčina</a><a href="https://www.tysiachachomu.com" target="_blank" rel="noopener" title="Тисяча чому">Українська</a></div></details></div>
+                <div class="iprice"><b>USD 27.99</b><span>one-time payment</span></div>
+              </div>
+            </article><article class="item">
+              <img src="images/cat/prompts-metier.webp" alt="" loading="lazy" width="720" height="720">
+              <div class="ibody">
+                <span class="icat">Business &amp; digital tools</span>
+                <h3>Prompts for your profession</h3>
+                <p>A method and 225 ready-to-use AI prompts for ten professions.</p>
+                <div class="eds"><a href="https://prompts-metier.impultienda.ar" target="_blank" rel="noopener" title="Prompts Métier">Français</a></div>
+                <div class="iprice"><b>USD 19.05</b><span>one-time payment</span></div>
+              </div>
+            </article><article class="item">
+              <img src="images/cat/pratos-que-nao-pesam.webp" alt="" loading="lazy" width="720" height="720">
+              <div class="ibody">
+                <span class="icat">Cooking &amp; nutrition</span>
+                <h3>Plates that don&#x27;t weigh you down</h3>
+                <p>100 real-food recipes in small portions, built on the Small Plate Rule.</p>
+                <div class="eds"><a href="https://pratos-que-nao-pesam.impultienda.ar" target="_blank" rel="noopener" title="Pratos que Não Pesam">Português</a></div>
+                <div class="iprice"><b>USD 14.90</b><span>one-time payment</span></div>
+              </div>
+            </article><article class="item">
+              <img src="images/cat/schede-del-mese.webp" alt="" loading="lazy" width="720" height="720">
+              <div class="ibody">
+                <span class="icat">Family, kids &amp; games</span>
+                <h3>Monthly worksheets</h3>
+                <p>90 photocopiable worksheets for first grade, ten a month from September to April.</p>
+                <div class="eds"><a href="https://schede-del-mese.impultienda.ar" target="_blank" rel="noopener" title="Le schede del mese">Italiano</a></div>
+                <div class="iprice"><b>USD 15.68</b><span>one-time payment</span></div>
+              </div>
+            </article><article class="item">
+              <img src="images/cat/despensa-casera.webp" alt="" loading="lazy" width="720" height="720">
+              <div class="ibody">
+                <span class="icat">Cooking &amp; nutrition</span>
+                <h3>The homemade pantry</h3>
+                <p>120 home preserves step by step: pickles, jams, sauces, vegetables in jars and fruit in syrup.</p>
+                <div class="eds"><a href="https://despensa-casera.impultienda.ar" target="_blank" rel="noopener" title="La Despensa Casera">Español</a></div>
+                <div class="iprice"><b>USD 11.00</b><span>one-time payment</span></div>
+              </div>
+            </article><article class="item">
+              <img src="images/cat/mordakten.webp" alt="" loading="lazy" width="720" height="720">
+              <div class="ibody">
+                <span class="icat">Family, kids &amp; games</span>
+                <h3>Murder mystery case files</h3>
+                <p>Three complete police investigations as printable case files to solve at home with friends.</p>
+                <div class="eds"><a href="https://mordakten.impultienda.ar" target="_blank" rel="noopener" title="Mordakten">Svenska</a></div>
+                <div class="iprice"><b>USD 26.90</b><span>one-time payment</span></div>
+              </div>
+            </article><article class="item">
+              <img src="images/cat/dispensa-fatta-in-casa.webp" alt="" loading="lazy" width="720" height="720">
+              <div class="ibody">
+                <span class="icat">Cooking &amp; nutrition</span>
+                <h3>Pantry mixes in a jar</h3>
+                <p>120 dry mixes to keep in jars for cakes, bread and pizza, breakfasts, soups and stock.</p>
+                <div class="eds"><a href="https://dispensa-fatta-in-casa.impultienda.ar" target="_blank" rel="noopener" title="La dispensa fatta in casa">Italiano</a></div>
+                <div class="iprice"><b>USD 21.99</b><span>one-time payment</span></div>
+              </div>
+            </article><article class="item">
+              <img src="images/cat/pranzo-in-barattolo.webp" alt="" loading="lazy" width="720" height="720">
+              <div class="ibody">
+                <span class="icat">Cooking &amp; nutrition</span>
+                <h3>Lunch in a jar</h3>
+                <p>80 one-bowl salads that make a real lunch, each with its card of protein per portion.</p>
+                <div class="eds"><a href="https://pranzo-in-barattolo.impultienda.ar" target="_blank" rel="noopener" title="Il pranzo in barattolo">Italiano</a></div>
+                <div class="iprice"><b>USD 10.08</b><span>one-time payment</span></div>
+              </div>
+            </article><article class="item">
+              <img src="images/cat/friofeliz.webp" alt="" loading="lazy" width="720" height="720">
+              <div class="ibody">
+                <span class="icat">Cooking &amp; nutrition</span>
+                <h3>Ice cream from your freezer</h3>
+                <p>60 creamy ice creams, ice lollies and cold desserts made at home without a machine.</p>
+                <div class="eds"><a href="https://friofeliz.impultienda.ar" target="_blank" rel="noopener" title="Frío Feliz">Español</a></div>
+                <div class="iprice"><b>USD 14.90</b><span>one-time payment</span></div>
+              </div>
+            </article><article class="item">
+              <img src="images/cat/navidad-para-vender.webp" alt="" loading="lazy" width="720" height="720">
+              <div class="ibody">
+                <span class="icat">Cooking &amp; nutrition</span>
+                <h3>Christmas baking to sell</h3>
+                <p>72 tested Christmas recipes, each with its cost, suggested price and packaging idea.</p>
+                <div class="eds"><a href="https://navidad-para-vender.impultienda.ar" target="_blank" rel="noopener" title="Navidad para Vender">Español</a></div>
+                <div class="iprice"><b>USD 15.90</b><span>one-time payment</span></div>
+              </div>
+            </article></div>
+          <p class="roadmap">Most stores also offer optional add-ons before or after payment, each with its own price shown before you accept it. We add new titles and languages regularly; this page is updated as they launch. Prices are listed in USD; depending on the customer's country, the checkout may present the equivalent amount in local currency.</p>
+      </div>
+    </section>
+    <!-- CATALOGUE:END -->
   </main>
 
   <footer>
